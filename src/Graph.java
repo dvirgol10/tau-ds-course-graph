@@ -10,6 +10,10 @@ You are allowed to add classes, methods, and members as required.
  *
  */
 public class Graph {
+    NeighborhoodsList neighborhoodsList;
+    MaxHeap neighborhoodWeightHeap;
+    HashTable tableIdToRepresentation;
+
     /**
      * Initializes the graph on a given set of nodes. The created graph is empty, i.e. it has no edges.
      * You may assume that the ids of distinct nodes are distinct.
@@ -17,7 +21,9 @@ public class Graph {
      * @param nodes - an array of node objects
      */
     public Graph(Node [] nodes){
-        //TODO: implement this method.
+        this.neighborhoodsList = new NeighborhoodsList(nodes.length);
+        this.neighborhoodWeightHeap = new MaxHeap(nodes);
+        this.tableIdToRepresentation = new HashTable(this.neighborhoodWeightHeap);
     }
 
     /**
@@ -180,43 +186,60 @@ public class Graph {
         }
 
 
-        public void createEdgeInNeighborList(int node1Index, int node2Index) {
-            NeighborNode neighborNode1 = new NeighborNode(node1Index);
-            NeighborNode neighborNode2 = new NeighborNode(node2Index);
+        public void createEdgeInNeighborList(int node1ID, int node2ID) {
+            NeighborNode neighborNode1 = new NeighborNode(node1ID);
+            NeighborNode neighborNode2 = new NeighborNode(node2ID);
 
-            this.arrNeighborsLists[node1Index].insertFirst(neighborNode2);
-            this.arrNeighborsLists[node2Index].insertFirst(neighborNode1);
+            HashTable.HashTableNode hashTableNode1 = tableIdToRepresentation.find(node1ID).item;
+            HashTable.HashTableNode hashTableNode2 = tableIdToRepresentation.find(node2ID).item;
 
+            int node1NListIndex = hashTableNode1.nodeNListIndex;
+            int node2NListIndex = hashTableNode2.nodeNListIndex;
 
-            neighborNode1.ListNodeOfNeighborInEdge = this.arrNeighborsLists[node1Index].retrieveFirstNode();
-            neighborNode2.ListNodeOfNeighborInEdge = this.arrNeighborsLists[node2Index].retrieveFirstNode();
+            this.arrNeighborsLists[node1NListIndex].insertFirst(neighborNode2);
+            this.arrNeighborsLists[node2NListIndex].insertFirst(neighborNode1);
+
+            neighborNode1.ListNodeOfNeighborInEdge = this.arrNeighborsLists[node1NListIndex].retrieveFirstNode();
+            neighborNode2.ListNodeOfNeighborInEdge = this.arrNeighborsLists[node2NListIndex].retrieveFirstNode();
+
+            neighborhoodWeightHeap.increaseNeighborhoodWeight(hashTableNode1.heapNode, hashTableNode2.heapNode.value.getWeight());
+            neighborhoodWeightHeap.increaseNeighborhoodWeight(hashTableNode2.heapNode, hashTableNode1.heapNode.value.getWeight());
 
             this.numEdges += 1;
         }
 
 
-        public void deleteNodeFromNeighborList(int nodeIndex) {
-            LinkedList<NeighborNode> NeighborsLinkedList = this.arrNeighborsLists[nodeIndex];
-            LinkedList<NeighborNode>.ListNode listNode = NeighborsLinkedList.sentinel.next;
+        public void deleteNodeFromNeighborList(int nodeID) {
+            HashTable.HashTableNode hashTableNode = tableIdToRepresentation.find(nodeID).item;
+            int nodeNListIndex = hashTableNode.nodeNListIndex;
+
+            LinkedList<NeighborNode> NeighborsLinkedList = this.arrNeighborsLists[nodeNListIndex];
+
             int i = 0;
+            LinkedList<NeighborNode>.ListNode listNode = NeighborsLinkedList.sentinel.next;
             while (NeighborsLinkedList.length != i) {
                 NeighborNode neighborNode = listNode.item;
-                this.arrNeighborsLists[neighborNode.nodeIndex].deleteNode(neighborNode.ListNodeOfNeighborInEdge);
+                HashTable.HashTableNode hashTableNeighborNode = tableIdToRepresentation.find(neighborNode.nodeID).item;
+                this.arrNeighborsLists[hashTableNeighborNode.nodeNListIndex].deleteNode(neighborNode.ListNodeOfNeighborInEdge);
                 this.numEdges -= 1;
+
+                neighborhoodWeightHeap.decreaseNeighborhoodWeight(hashTableNeighborNode.heapNode, hashTableNode.heapNode.value.getWeight());
 
                 listNode = listNode.next;
                 i += 1;
             }
-            this.arrNeighborsLists[nodeIndex] = null;
+
+            neighborhoodWeightHeap.deleteHeapNode(hashTableNode.heapNode);
+            this.arrNeighborsLists[nodeNListIndex] = null;
         }
 
 
         public class NeighborNode {
-            int nodeIndex;
+            int nodeID;
             LinkedList<NeighborNode>.ListNode ListNodeOfNeighborInEdge;
 
-            public NeighborNode(int nodeIndex) {
-                this.nodeIndex = nodeIndex;
+            public NeighborNode(int nodeID) {
+                this.nodeID = nodeID;
             }
 
 
@@ -267,7 +290,7 @@ public class Graph {
 
         public void setHeapNodeAtIndex(HeapNode heapNode, int i) {
             this.heapArr[i] = heapNode;
-            heapNode.index = i;
+            heapNode.heapIndex = i;
         }
 
         public void swapHeapNodes(int i, int j) {
@@ -318,25 +341,31 @@ public class Graph {
 
         public void decreaseNeighborhoodWeight(HeapNode heapNode , int delta) {
             heapNode.key -= delta;
-            this.heapifyDown(heapNode.index);
+            this.heapifyDown(heapNode.heapIndex);
+        }
+
+
+        public void increaseNeighborhoodWeight(HeapNode heapNode , int delta) {
+            heapNode.key += delta;
+            this.heapifyUp(heapNode.heapIndex);
         }
 
 
         public void deleteHeapNode(HeapNode heapNode) {
-            this.heapifyUp(heapNode.index);
-            this.heapifyDown(heapNode.index);
+            this.heapifyUp(heapNode.heapIndex);
+            this.heapifyDown(heapNode.heapIndex);
         }
 
 
         public class HeapNode {
             int key;
             Node value;
-            int index;
+            int heapIndex;
 
-            public HeapNode(int key, Node value, int index) {
+            public HeapNode(int key, Node value, int heapIndex) {
                 this.key = key;
                 this.value = value;
-                this.index = index;
+                this.heapIndex = heapIndex;
             }
         }
 
@@ -397,12 +426,12 @@ public class Graph {
 
         public class HashTableNode {
             int nodeID;
-            int nodeIndex;
+            int nodeNListIndex;
             MaxHeap.HeapNode heapNode;
 
-            public HashTableNode(int nodeID, int nodeIndex, MaxHeap.HeapNode heapNode) {
+            public HashTableNode(int nodeID, int nodeNListIndex, MaxHeap.HeapNode heapNode) {
                 this.nodeID = nodeID;
-                this.nodeIndex = nodeIndex;
+                this.nodeNListIndex = nodeNListIndex;
                 this.heapNode = heapNode;
             }
 
