@@ -20,7 +20,7 @@ public class Graph {
      *
      * @param nodes - an array of node objects
      */
-    public Graph(Node [] nodes){
+    public Graph(Node[] nodes){
         this.neighborhoodsList = new NeighborhoodsList(nodes.length);
         this.neighborhoodWeightHeap = new MaxHeap(nodes);
         this.tableIdToRepresentation = new HashTable(this.neighborhoodWeightHeap);
@@ -32,8 +32,10 @@ public class Graph {
      * @return a Node object representing the correct node. If there is no node in the graph, returns 'null'.
      */
     public Node maxNeighborhoodWeight(){
-        //TODO: implement this method.
-        return null;
+        if (this.neighborhoodWeightHeap.getSize() == 0) {
+            return null;
+        }
+        return this.neighborhoodWeightHeap.max();
     }
 
     /**
@@ -44,8 +46,11 @@ public class Graph {
      * Otherwise, the function returns -1.
      */
     public int getNeighborhoodWeight(int node_id){
-        //TODO: implement this method.
-        return 0;
+        LinkedList<HashTable.HashTableNode>.ListNode listNode = this.tableIdToRepresentation.find(node_id);
+        if (listNode == null) {
+            return -1;
+        }
+        return this.tableIdToRepresentation.find(node_id).item.heapNode.key;
     }
 
     /**
@@ -59,8 +64,13 @@ public class Graph {
      * @return returns 'true' if the function added an edge, otherwise returns 'false'.
      */
     public boolean addEdge(int node1_id, int node2_id){
-        //TODO: implement this method.
-        return false;
+        LinkedList<HashTable.HashTableNode>.ListNode listNode1 = this.tableIdToRepresentation.find(node1_id);
+        LinkedList<HashTable.HashTableNode>.ListNode listNode2 = this.tableIdToRepresentation.find(node2_id);
+        if (listNode1 == null || listNode2 == null) {
+            return false;
+        }
+        this.neighborhoodsList.createEdgeInNeighborList(listNode1.item.nodeID, listNode2.item.nodeID);
+        return true;
     }
 
     /**
@@ -70,8 +80,12 @@ public class Graph {
      * @return returns 'true' if the function deleted a node, otherwise returns 'false'
      */
     public boolean deleteNode(int node_id){
-        //TODO: implement this method.
-        return false;
+        HashTable.HashTableNode hashTableNode = tableIdToRepresentation.delete(node_id);
+        if (null == hashTableNode) {
+            return false;
+        }
+        neighborhoodsList.deleteNodeFromNeighborList(hashTableNode);
+        return true;
     }
 
 
@@ -79,14 +93,16 @@ public class Graph {
      * This class represents a node in the graph.
      */
     public class Node{
+        int id;
+        int weight;
         /**
          * Creates a new node object, given its id and its weight.
          * @param id - the id of the node.
          * @param weight - the weight of the node.
          */
         public Node(int id, int weight){
-            //TODO: implement this method.
-            return;
+            this.id = id;
+            this.weight = weight;
         }
 
         /**
@@ -94,8 +110,7 @@ public class Graph {
          * @return the id of the node.
          */
         public int getId(){
-            //TODO: implement this method.
-            return 0;
+            return this.id;
         }
 
         /**
@@ -103,8 +118,7 @@ public class Graph {
          * @return the weight of the node.
          */
         public int getWeight(){
-            //TODO: implement this method.
-            return 0;
+            return this.weight;
         }
     }
 
@@ -209,8 +223,7 @@ public class Graph {
         }
 
 
-        public void deleteNodeFromNeighborList(int nodeID) {
-            HashTable.HashTableNode hashTableNode = tableIdToRepresentation.find(nodeID).item;
+        public void deleteNodeFromNeighborList(HashTable.HashTableNode hashTableNode) {
             int nodeNListIndex = hashTableNode.nodeNListIndex;
 
             LinkedList<NeighborNode> NeighborsLinkedList = this.arrNeighborsLists[nodeNListIndex];
