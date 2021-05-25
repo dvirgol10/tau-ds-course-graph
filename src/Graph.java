@@ -4,6 +4,9 @@ You are required to implement the methods of this skeleton file according to the
 You are allowed to add classes, methods, and members as required.
  */
 
+import java.util.Objects;
+import java.util.Random;
+
 /**
  * This class represents a graph that efficiently maintains the heaviest neighborhood over edge addition and
  * vertex deletion.
@@ -152,7 +155,7 @@ public class Graph {
             ListNode node = this.sentinel.next;
             int i = 0;
             while (this.length != i) {
-                if (item.equals(node.getItem())) { //TODO: implement equals in T-s
+                if (item.equals(node.getItem())) {
                     return node;
                 }
                 node = node.next;
@@ -385,7 +388,6 @@ public class Graph {
     }
 
 
-
     public static class HashTable {
         int p;
         int a;
@@ -399,6 +401,10 @@ public class Graph {
                 this.table[i] = new LinkedList<HashTableNode>();
             }
             this.p = 1000000009;
+
+            Random random = new Random();
+            this.a = random.nextInt(this.p - 1) + 1;
+            this.b = random.nextInt(this.p);
             //TODO: assign values to this.a and this.b
 
             for (int i = 0; i < maxHeap.getSize(); i++) {
@@ -437,7 +443,7 @@ public class Graph {
 
         }
 
-        public class HashTableNode {
+        public static class HashTableNode {
             int nodeID;
             int nodeNListIndex;
             MaxHeap.HeapNode heapNode;
@@ -448,8 +454,13 @@ public class Graph {
                 this.heapNode = heapNode;
             }
 
-            public boolean equals(HashTableNode hashTableNode) {
-                return this.nodeID == hashTableNode.nodeID;
+
+            @Override
+            public boolean equals(Object o) {
+                if (this == o) return true;
+                if (o == null || getClass() != o.getClass()) return false;
+                HashTableNode that = (HashTableNode) o;
+                return nodeID == that.nodeID;
             }
         }
     }
