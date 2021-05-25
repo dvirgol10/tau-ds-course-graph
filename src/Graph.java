@@ -123,8 +123,12 @@ public class Graph {
             this.length += 1;
         }
 
+        public ListNode retrieveFirstNode() {
+            return this.sentinel.next;
+        }
 
-        public ListNode Retrieve(T item) {
+
+        public ListNode retrieve(T item) {
             ListNode node = this.sentinel.next;
             int i = 0;
             while (this.length != i) {
@@ -138,9 +142,12 @@ public class Graph {
         }
 
 
-        public void DeleteNode(ListNode node) {
+        public void deleteNode(ListNode node) {
             node.prev.next = node.next;
             node.next.prev = node.prev;
+            node.item = null;
+            node.prev = null;
+            node.next = null;
         }
 
 
@@ -160,10 +167,67 @@ public class Graph {
     }
 
 
+    public class NeighborhoodsList {
+        LinkedList<NeighborNode>[] arrNeighborsLists;
+        int numEdges;
+
+        public NeighborhoodsList(int numNodes) {
+            this.arrNeighborsLists = new LinkedList[numNodes];
+            for (int i = 0; i < numNodes; i++) {
+                this.arrNeighborsLists[i] = new LinkedList<NeighborNode>();
+            }
+            this.numEdges = 0;
+        }
+
+
+        public void createEdgeInNeighborList(int node1Index, int node2Index) {
+            NeighborNode neighborNode1 = new NeighborNode(node1Index);
+            NeighborNode neighborNode2 = new NeighborNode(node2Index);
+
+            this.arrNeighborsLists[node1Index].insertFirst(neighborNode2);
+            this.arrNeighborsLists[node2Index].insertFirst(neighborNode1);
+
+
+            neighborNode1.ListNodeOfNeighborInEdge = this.arrNeighborsLists[node1Index].retrieveFirstNode();
+            neighborNode2.ListNodeOfNeighborInEdge = this.arrNeighborsLists[node2Index].retrieveFirstNode();
+
+            this.numEdges += 1;
+        }
+
+
+        public void deleteNodeFromNeighborList(int nodeIndex) {
+            LinkedList<NeighborNode> NeighborsLinkedList = this.arrNeighborsLists[nodeIndex];
+            LinkedList<NeighborNode>.ListNode listNode = NeighborsLinkedList.sentinel.next;
+            int i = 0;
+            while (NeighborsLinkedList.length != i) {
+                NeighborNode neighborNode = listNode.item;
+                this.arrNeighborsLists[neighborNode.nodeIndex].deleteNode(neighborNode.ListNodeOfNeighborInEdge);
+                this.numEdges -= 1;
+
+                listNode = listNode.next;
+                i += 1;
+            }
+            this.arrNeighborsLists[nodeIndex] = null;
+        }
+
+
+        public class NeighborNode {
+            int nodeIndex;
+            LinkedList<NeighborNode>.ListNode ListNodeOfNeighborInEdge;
+
+            public NeighborNode(int nodeIndex) {
+                this.nodeIndex = nodeIndex;
+            }
+
+
+        }
+    }
+
 
     public static class MaxHeap {
         HeapNode[] heapArr;
         int size;
+
 
         public MaxHeap(Node[] nodes) {
             this.heapArr = new HeapNode[nodes.length];
@@ -247,18 +311,18 @@ public class Graph {
         }
 
 
-        public Node Max() {
+        public Node max() {
             return heapArr[0].value;
         }
 
 
-        public void DecreaseNeighborhoodWeight(HeapNode heapNode , int delta) {
+        public void decreaseNeighborhoodWeight(HeapNode heapNode , int delta) {
             heapNode.key -= delta;
             this.heapifyDown(heapNode.index);
         }
 
 
-        public void Delete(HeapNode heapNode) {
+        public void deleteHeapNode(HeapNode heapNode) {
             this.heapifyUp(heapNode.index);
             this.heapifyDown(heapNode.index);
         }
@@ -277,6 +341,8 @@ public class Graph {
         }
 
     }
+
+
 
 }
 
