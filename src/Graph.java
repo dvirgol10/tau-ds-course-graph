@@ -113,6 +113,7 @@ public class Graph {
             this.sentinel.next = this.sentinel;
         }
 
+
         public void insertFirst(T item) {
             ListNode node = new ListNode(item);
             node.prev = this.sentinel;
@@ -127,7 +128,7 @@ public class Graph {
             ListNode node = this.sentinel.next;
             int i = 0;
             while (this.length != i) {
-                if (item.equals(node.getItem())) { //TODO implement equals in T-s
+                if (item.equals(node.getItem())) { //TODO: implement equals in T-s
                     return node;
                 }
                 node = node.next;
@@ -136,10 +137,12 @@ public class Graph {
             return null;
         }
 
+
         public void DeleteNode(ListNode node) {
             node.prev.next = node.next;
             node.next.prev = node.prev;
         }
+
 
         public class ListNode {
             T item;
@@ -156,56 +159,124 @@ public class Graph {
         }
     }
 
-    /*
-        public static class LinkedList<T> {
-        ListNode sentinel;
-        int length;
 
-        public LinkedList() {
-            this.length = 0;
-            this.sentinel = new ListNode(null, null, null);
-            this.sentinel.setPrev(this.sentinel);
-            this.sentinel.setNext(this.sentinel);
+
+    public static class MaxHeap {
+        HeapNode[] heapArr;
+        int size;
+
+        public MaxHeap(Node[] nodes) {
+            this.heapArr = new HeapNode[nodes.length];
+            this.size = nodes.length;
+            for (int i = 0; i < nodes.length; i++) {
+                this.heapArr[i] = new HeapNode(nodes[i].getWeight(), nodes[i], i);
+            }
+
+            int j = parent(this.size - 1);
+            while (j >= 0) {
+                this.heapifyDown(j);
+                j -= 1;
+            }
+
+
         }
 
-        public ListNode getSentinel() {
-            return this.sentinel;
+
+        public int left(int i) {
+            return 2 * i + 1;
         }
 
-        public void insertFirst(T item) {
-            ListNode node = new ListNode(item, this.getSentinel(), this.getSentinel().getNext());
+
+        public int right(int i) {
+            return 2 * i + 2;
+        }
+
+
+        public int parent(int i) {
+            return (i + 1) / 2 - 1;
+        }
+
+
+        public int getSize() {
+            return this.size;
+        }
+
+        public void setHeapNodeAtIndex(HeapNode heapNode, int i) {
+            this.heapArr[i] = heapNode;
+            heapNode.index = i;
+        }
+
+        public void swapHeapNodes(int i, int j) {
+            HeapNode tmp = this.heapArr[i];
+            this.setHeapNodeAtIndex(this.heapArr[j], i);
+            this.setHeapNodeAtIndex(tmp, j);
+        }
+
+
+        public void heapifyUp(int i) {
+            while (i > 0 && this.heapArr[i].key > this.heapArr[parent(i)].key) {
+                this.swapHeapNodes(i, parent(i));
+                i = parent(i);
+            }
+        }
+
+
+        public void heapifyDown(int i) {
+            int l;
+            int r;
+            int largest;
+            boolean isCompleted = false;
+            while (!isCompleted) {
+                l = left(i);
+                r = right(i);
+                largest = i;
+                if (l < this.getSize() && this.heapArr[l].key > this.heapArr[largest].key) {
+                    largest = l;
+                }
+                if (r < this.getSize() && this.heapArr[r].key > this.heapArr[largest].key) {
+                    largest = r;
+                }
+                if (largest > i) {
+                    swapHeapNodes(i, largest);
+                    i = largest;
+                } else {
+                    isCompleted = true;
+                }
+            }
 
         }
 
-        public class ListNode {
-            T item;
-            ListNode prev;
-            ListNode next;
 
-            public ListNode(T item, ListNode prev, ListNode next) {
-                this.item = item;
-                this.prev = prev;
-                this.next = next;
-            }
+        public Node Max() {
+            return heapArr[0].value;
+        }
 
-            public ListNode getPrev() {
-                return this.prev;
-            }
 
-            public void setPrev(ListNode prev) {
-                this.prev = prev;
-            }
+        public void DecreaseNeighborhoodWeight(HeapNode heapNode , int delta) {
+            heapNode.key -= delta;
+            this.heapifyDown(heapNode.index);
+        }
 
-            public ListNode getNext() {
-                return this.next;
-            }
 
-            public void setNext(ListNode next) {
-                this.next = next;
+        public void Delete(HeapNode heapNode) {
+            this.heapifyUp(heapNode.index);
+            this.heapifyDown(heapNode.index);
+        }
+
+
+        public class HeapNode {
+            int key;
+            Node value;
+            int index;
+
+            public HeapNode(int key, Node value, int index) {
+                this.key = key;
+                this.value = value;
+                this.index = index;
             }
         }
+
     }
-     */
 
 }
 
