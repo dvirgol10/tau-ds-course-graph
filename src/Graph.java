@@ -344,6 +344,76 @@ public class Graph {
 
 
 
+    public static class HashTable {
+        int p;
+        int a;
+        int b;
+        LinkedList<HashTableNode>[] table;
+
+
+        public HashTable(MaxHeap maxHeap) {
+            this.table = new LinkedList[maxHeap.getSize()];
+            for (int i = 0; i < maxHeap.getSize(); i++) {
+                this.table[i] = new LinkedList<HashTableNode>();
+            }
+            this.p = 1000000009;
+            //TODO: assign values to this.a and this.b
+
+            for (int i = 0; i < maxHeap.getSize(); i++) {
+                this.insert(maxHeap.heapArr[i].value.getId(), i, maxHeap.heapArr[i]);
+            }
+        }
+
+
+        public LinkedList<HashTableNode> findChain(int x) {
+            return this.table[((this.a * x + this.b) % this.p) % this.table.length];
+        }
+
+
+        public void insert(int nodeID, int nodeIndex, MaxHeap.HeapNode heapNode) {
+            if (this.find(nodeID) == null){
+                findChain(nodeID).insertFirst(new HashTableNode(nodeID, nodeIndex, heapNode));
+            }
+        }
+
+
+        public LinkedList<HashTableNode>.ListNode find(int nodeID) {
+            return this.findChain(nodeID).retrieve(new HashTableNode(nodeID, -1, null));
+        }
+
+
+        public HashTableNode delete(int nodeID) {
+            LinkedList<HashTableNode>.ListNode listNode = this.find(nodeID);
+
+            if (listNode == null) {
+                return null;
+            }
+
+            HashTableNode hashTableNode = listNode.item;
+            this.findChain(nodeID).deleteNode(listNode);
+            return hashTableNode;
+
+        }
+
+        public class HashTableNode {
+            int nodeID;
+            int nodeIndex;
+            MaxHeap.HeapNode heapNode;
+
+            public HashTableNode(int nodeID, int nodeIndex, MaxHeap.HeapNode heapNode) {
+                this.nodeID = nodeID;
+                this.nodeIndex = nodeIndex;
+                this.heapNode = heapNode;
+            }
+
+            public boolean equals(HashTableNode hashTableNode) {
+                return this.nodeID == hashTableNode.nodeID;
+            }
+        }
+    }
+
+
+
 }
 
 
