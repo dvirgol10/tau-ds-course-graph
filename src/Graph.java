@@ -4,7 +4,6 @@ You are required to implement the methods of this skeleton file according to the
 You are allowed to add classes, methods, and members as required.
  */
 
-import java.util.Objects;
 import java.util.Random;
 
 /**
@@ -13,9 +12,11 @@ import java.util.Random;
  *
  */
 public class Graph {
-    NeighborhoodsList neighborhoodsList;
-    MaxHeap neighborhoodWeightHeap;
-    HashTable tableIdToRepresentation;
+
+    public NeighborhoodsList neighborhoodsList;
+    public MaxHeap neighborhoodWeightHeap;
+    public HashTable tableIdToRepresentation;
+
 
     /**
      * Initializes the graph on a given set of nodes. The created graph is empty, i.e. it has no edges.
@@ -29,6 +30,7 @@ public class Graph {
         this.tableIdToRepresentation = new HashTable(this.neighborhoodWeightHeap);
     }
 
+
     /**
      * This method returns the node in the graph with the maximum neighborhood weight.
      * Note: nodes that have been removed from the graph using deleteNode are no longer in the graph.
@@ -40,6 +42,7 @@ public class Graph {
         }
         return this.neighborhoodWeightHeap.max();
     }
+
 
     /**
      * given a node id of a node in the graph, this method returns the neighborhood weight of that node.
@@ -55,6 +58,7 @@ public class Graph {
         }
         return this.tableIdToRepresentation.find(node_id).item.heapNode.key;
     }
+
 
     /**
      * This function adds an edge between the two nodes whose ids are specified.
@@ -76,6 +80,7 @@ public class Graph {
         return true;
     }
 
+
     /**
      * Given the id of a node in the graph, deletes the node of that id from the graph, if it exists.
      *
@@ -92,12 +97,22 @@ public class Graph {
     }
 
 
+
     /**
      * This class represents a node in the graph.
      */
     public class Node{
-        int id;
-        int weight;
+        /**
+         * The id of the node
+         */
+        public int id;
+
+        /**
+         * The weight of the node
+         */
+        public int weight;
+
+
         /**
          * Creates a new node object, given its id and its weight.
          * @param id - the id of the node.
@@ -108,6 +123,7 @@ public class Graph {
             this.weight = weight;
         }
 
+
         /**
          * Returns the id of the node.
          * @return the id of the node.
@@ -115,6 +131,7 @@ public class Graph {
         public int getId(){
             return this.id;
         }
+
 
         /**
          * Returns the weight of the node.
@@ -125,10 +142,24 @@ public class Graph {
         }
     }
 
+    /**
+     * This generic class implements specific necessary operations of the ADT list by doubly linked list.
+     */
     public static class LinkedList<T> {
-        ListNode sentinel;
-        int length;
+        /**
+         * The sentinel of the list, for more convenient implementation.
+         */
+        public ListNode sentinel;
 
+        /**
+         * The length of the linked list.
+         */
+        public int length;
+
+        /**
+         * Creates an empty linked list, i.e. it has no elements.
+         *
+         */
         public LinkedList() {
             this.length = 0;
             this.sentinel = new ListNode(null);
@@ -137,6 +168,11 @@ public class Graph {
         }
 
 
+        /**
+         * Given an item, inserts it to the start of the linked list.
+         *
+         * @param item - the item to insert.
+         */
         public void insertFirst(T item) {
             ListNode node = new ListNode(item);
             node.prev = this.sentinel;
@@ -146,12 +182,24 @@ public class Graph {
             this.length += 1;
         }
 
+        /**
+         * Returns the first (list) node of the linked list.
+         * @return the first (list) node of the linked list.
+         */
         public ListNode retrieveFirstNode() {
             return this.sentinel.next;
         }
 
 
-        public ListNode retrieve(T item) {
+        /**
+         * Given an item, returns the first (list) node in the linked list that keeps the item, if it exists.
+         * Otherwise, returns null.
+         *
+         * @param item - the item of a (list) node to return.
+         * @return returns the first (list) node in the linked list that keeps the item if it exists,
+         * otherwise returns 'null'.
+         */
+        public ListNode retrieveNode(T item) {
             ListNode node = this.sentinel.next;
             int i = 0;
             while (this.length != i) {
@@ -165,24 +213,54 @@ public class Graph {
         }
 
 
+        /**
+         * Given an (list) node, deletes it from its linked list.
+         *
+         * @param node - the (list) node to delete.
+         */
         public void deleteNode(ListNode node) {
             node.prev.next = node.next;
             node.next.prev = node.prev;
             node.item = null;
             node.prev = null;
             node.next = null;
+            this.length -= 1;
         }
 
 
+        /**
+         * This class represents a node in a doubly linked list.
+         */
         public class ListNode {
-            T item;
-            ListNode prev;
-            ListNode next;
+            /**
+             * The data which the (list) node keeps.
+             */
+            public T item;
 
+            /**
+             * The previous (list) node in the linked list.
+             */
+            public ListNode prev;
+
+            /**
+             * The next (list) node in the linked list.
+             */
+            public ListNode next;
+
+
+            /**
+             * Creates a new (list) node, given its item.
+             * @param item - the item of the (list) node.
+             */
             public ListNode(T item) {
                 this.item = item;
             }
 
+
+            /**
+             * Returns the item of the node.
+             * @return the item of the node.
+             */
             public T getItem(){
                 return this.item;
             }
@@ -191,8 +269,8 @@ public class Graph {
 
 
     public class NeighborhoodsList {
-        LinkedList<NeighborNode>[] arrNeighborsLists;
-        int numEdges;
+        public LinkedList<NeighborNode>[] arrNeighborsLists;
+        public int numEdges;
 
         public NeighborhoodsList(int numNodes) {
             this.arrNeighborsLists = new LinkedList[numNodes];
@@ -251,8 +329,8 @@ public class Graph {
 
 
         public class NeighborNode {
-            int nodeID;
-            LinkedList<NeighborNode>.ListNode ListNodeOfNeighborInEdge;
+            public int nodeID;
+            public LinkedList<NeighborNode>.ListNode ListNodeOfNeighborInEdge;
 
             public NeighborNode(int nodeID) {
                 this.nodeID = nodeID;
@@ -264,8 +342,8 @@ public class Graph {
 
 
     public static class MaxHeap {
-        HeapNode[] heapArr;
-        int size;
+        public HeapNode[] heapArr;
+        public int size;
 
 
         public MaxHeap(Node[] nodes) {
@@ -374,9 +452,9 @@ public class Graph {
 
 
         public class HeapNode {
-            int key;
-            Node value;
-            int heapIndex;
+            public int key;
+            public Node value;
+            public int heapIndex;
 
             public HeapNode(int key, Node value, int heapIndex) {
                 this.key = key;
@@ -389,9 +467,9 @@ public class Graph {
 
 
     public static class HashTable {
-        int p;
-        int a;
-        int b;
+        public int p;
+        public int a;
+        public int b;
         LinkedList<HashTableNode>[] table;
 
 
@@ -426,7 +504,7 @@ public class Graph {
 
 
         public LinkedList<HashTableNode>.ListNode find(int nodeID) {
-            return this.findChain(nodeID).retrieve(new HashTableNode(nodeID, -1, null));
+            return this.findChain(nodeID).retrieveNode(new HashTableNode(nodeID, -1, null));
         }
 
 
@@ -444,9 +522,9 @@ public class Graph {
         }
 
         public static class HashTableNode {
-            int nodeID;
-            int nodeNListIndex;
-            MaxHeap.HeapNode heapNode;
+            public int nodeID;
+            public int nodeNListIndex;
+            public MaxHeap.HeapNode heapNode;
 
             public HashTableNode(int nodeID, int nodeNListIndex, MaxHeap.HeapNode heapNode) {
                 this.nodeID = nodeID;

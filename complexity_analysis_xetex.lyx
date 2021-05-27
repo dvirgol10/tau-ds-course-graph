@@ -1,0 +1,1585 @@
+#LyX 2.3 created this file. For more info see http://www.lyx.org/
+\lyxformat 544
+\begin_document
+\begin_header
+\save_transient_properties true
+\origin unavailable
+\textclass heb-article
+\begin_preamble
+\usepackage{culmus}
+\end_preamble
+\use_default_options true
+\maintain_unincluded_children false
+\language hebrew
+\language_package default
+\inputencoding auto
+\fontencoding global
+\font_roman "default" "David"
+\font_sans "default" "default"
+\font_typewriter "default" "default"
+\font_math "auto" "auto"
+\font_default_family default
+\use_non_tex_fonts true
+\font_sc false
+\font_osf false
+\font_sf_scale 100 100
+\font_tt_scale 100 100
+\use_microtype false
+\use_dash_ligatures false
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\float_placement H
+\paperfontsize default
+\spacing single
+\use_hyperref true
+\pdf_bookmarks true
+\pdf_bookmarksnumbered true
+\pdf_bookmarksopen false
+\pdf_bookmarksopenlevel 0
+\pdf_breaklinks false
+\pdf_pdfborder false
+\pdf_colorlinks false
+\pdf_backref false
+\pdf_pdfusetitle false
+\papersize a4paper
+\use_geometry true
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 1
+\use_package esint 1
+\use_package mathdots 1
+\use_package mathtools 1
+\use_package mhchem 1
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
+\cite_engine basic
+\cite_engine_type default
+\biblio_style plain
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 1
+\use_minted 0
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\leftmargin 1in
+\topmargin 1in
+\rightmargin 1in
+\bottommargin 1in
+\headheight 0.5in
+\headsep 0.5in
+\footskip 0.5in
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation skip
+\defskip medskip
+\is_math_indent 0
+\math_numbering_side default
+\quotes_style swedish
+\dynamic_quotes 0
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Title
+מבני נתונים - פרויקט מעשי
+\family roman
+\series medium
+\shape up
+\size largest
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\numeric on
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+2
+\numeric off
+ - גרף עם משקלי סביבות
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset toc
+LatexCommand tableofcontents
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Newpage pagebreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+המחלקה
+\family roman
+\series bold
+\shape up
+\size larger
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+\lang english
+Node
+\end_layout
+
+\begin_layout Subsection
+תיאור המחלקה:
+\end_layout
+
+\begin_layout Standard
+מחלקה זו מייצגת קודקוד בגרף.
+\end_layout
+
+\begin_layout Subsection
+שדות המחלקה:
+\end_layout
+
+\begin_layout Enumerate
+המשתנה הציבורי 
+\begin_inset Formula $id$
+\end_inset
+
+ מסוג
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+\lang english
+int
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+\lang hebrew
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+אשר מייצג את המזהה של הקודקוד.
+\end_layout
+
+\begin_layout Enumerate
+המשתנה הציבורי 
+\begin_inset Formula $weight$
+\end_inset
+
+ מסוג
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+\lang english
+int
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+\lang hebrew
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+אשר מייצג את המשקל של הקודקוד.
+\end_layout
+
+\begin_layout Subsection
+בנאי המחלקה:
+\end_layout
+
+\begin_layout Subsubsection
+
+\series bold
+הבנאי 
+\lang english
+public Node(int id, int weight)
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+מה הוא עושה: 
+\series default
+פעולה בונה של המחלקה, מאתחל את שדות המחלקה עבור קודקוד בגרף.
+\end_layout
+
+\begin_layout Itemize
+השדה 
+\begin_inset Formula $id$
+\end_inset
+
+ מאותחל לפרמטר 
+\begin_inset Formula $id$
+\end_inset
+
+ שניתן על ידי המשתמש.
+\end_layout
+
+\begin_layout Itemize
+השדה 
+\begin_inset Formula $weight$
+\end_inset
+
+ מאותחל לפרמטר 
+\begin_inset Formula $weight$
+\end_inset
+
+ שניתן על ידי המשתמש.
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+סיבוכיות זמן הריצה:
+\series default
+ מתבצע מספר קבוע של השמות לשדות, לכן סיבוכיות זמן הריצה הכוללת היא 
+\begin_inset Formula $O\left(1\right)$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Subsection
+פעולות המחלקה:
+\end_layout
+
+\begin_layout Subsubsection
+
+\series bold
+הפעולה 
+\lang english
+public int getId()
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+מה היא עושה: 
+\series default
+מחזירה את המזהה של הקודקוד.
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+סיבוכיות זמן הריצה: 
+\series default
+ישנה גישה אחת לשדה, לכן 
+\begin_inset Formula $O\left(1\right)$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Subsubsection
+
+\series bold
+הפעולה 
+\lang english
+public int getWeight()
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+מה היא עושה: 
+\series default
+מחזירה את המשקל של הקודקוד.
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+סיבוכיות זמן הריצה: 
+\series default
+ישנה גישה אחת לשדה, לכן 
+\begin_inset Formula $O\left(1\right)$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Newpage pagebreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+המחלקה
+\family roman
+\series bold
+\shape up
+\size larger
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+\lang english
+ListNode
+\end_layout
+
+\begin_layout Subsection
+תיאור המחלקה:
+\end_layout
+
+\begin_layout Standard
+מחלקה זו מייצגת צומת ברשימה מקושרת דו-כיוונית.
+\end_layout
+
+\begin_layout Subsection
+שדות המחלקה:
+\end_layout
+
+\begin_layout Enumerate
+המשתנה הציבורי 
+\begin_inset Formula $item$
+\end_inset
+
+ מסוג גנרי
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+\lang english
+T
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+\lang hebrew
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+אשר מייצג את המידע שהצומת שומר.
+\end_layout
+
+\begin_layout Enumerate
+המשתנה הציבורי 
+\begin_inset Formula $prev$
+\end_inset
+
+ מסוג
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+\lang english
+ListNode
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+\lang hebrew
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+אשר מייצג את הצומת הקודם של הצומת הנוכחי ברשימה.
+\end_layout
+
+\begin_layout Enumerate
+המשתנה הציבורי 
+\begin_inset Formula $next$
+\end_inset
+
+ מסוג
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+\lang english
+ListNode
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+\lang hebrew
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+אשר מייצג את הצומת הבא של הצומת הנוכחי ברשימה.
+\end_layout
+
+\begin_layout Subsection
+בנאי המחלקה:
+\end_layout
+
+\begin_layout Subsubsection
+
+\series bold
+הבנאי 
+\lang english
+public ListNode(T item)
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+מה הוא עושה: 
+\series default
+פעולה בונה של המחלקה, מאתחל את שדה המידע של הצומת.
+\end_layout
+
+\begin_layout Itemize
+השדה 
+\begin_inset Formula $item$
+\end_inset
+
+ מאותחל לפרמטר 
+\begin_inset Formula $item$
+\end_inset
+
+ שניתן על ידי המשתמש.
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+סיבוכיות זמן הריצה:
+\series default
+ מתבצעת השמה אחת לשדה, לכן סיבוכיות זמן הריצה הכוללת היא 
+\begin_inset Formula $O\left(1\right)$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Subsection
+פעולות המחלקה:
+\end_layout
+
+\begin_layout Subsubsection
+
+\series bold
+הפעולה 
+\lang english
+public T getItem()
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+מה היא עושה: 
+\series default
+מחזירה את המידע )
+\begin_inset Formula $item$
+\end_inset
+
+( של הקודקוד.
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+סיבוכיות זמן הריצה: 
+\series default
+ישנה גישה אחת לשדה, לכן 
+\begin_inset Formula $O\left(1\right)$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Newpage pagebreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+המחלקה
+\family roman
+\series bold
+\shape up
+\size larger
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+\lang english
+LinkedList<T>
+\end_layout
+
+\begin_layout Subsection
+תיאור המחלקה:
+\end_layout
+
+\begin_layout Standard
+מחלקה גנרית זו מממשת, על ידי רשימה מקושרת דו-כיוונית, פעולות ספציפיות )והכרחיות
+ למימוש הגרף( של טיפוס הנתונים המופשט רשימה.
+\end_layout
+
+\begin_layout Subsection
+שדות המחלקה:
+\end_layout
+
+\begin_layout Enumerate
+המשתנה הציבורי 
+\begin_inset Formula $sentinel$
+\end_inset
+
+ מסוג
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+\lang english
+ListNode
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+\lang hebrew
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+אשר מצביע לזקיף של הרשימה, למען מימוש נוח יותר של הפעולות השונות.
+\end_layout
+
+\begin_layout Enumerate
+המשתנה הציבורי 
+\begin_inset Formula $length$
+\end_inset
+
+ מסוג
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+\lang english
+int
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+\lang hebrew
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+אשר מייצג את אורך הרשימה )כמות הצמתים בה, ללא ספירה של הזקיף 
+\begin_inset Formula $sentinel$
+\end_inset
+
+(
+\end_layout
+
+\begin_layout Subsection
+בנאי המחלקה:
+\end_layout
+
+\begin_layout Subsubsection
+
+\series bold
+הבנאי הריק 
+\lang english
+public LinkedList()
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+מה הוא עושה: 
+\series default
+פעולה בונה של המחלקה, מאתחל את שדות המחלקה עבור המתאימים לרשימה מקושרת ריקה.
+\end_layout
+
+\begin_layout Itemize
+השדה 
+\begin_inset Formula $length$
+\end_inset
+
+ מאותחל לאורך רשימה ריקה, 
+\begin_inset Formula $0$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Itemize
+השדה 
+\begin_inset Formula $sentinel$
+\end_inset
+
+ מאותחל לצומת ברשימה,
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+\lang english
+ListNode
+\lang hebrew
+, אשר לא צריך לשמור מידע, ולכן שומר
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+\lang english
+null
+\lang hebrew
+.
+\end_layout
+
+\begin_layout Standard
+כמו כן, האיבר הקודם והבא של הזקיף מוגדר להיות עצמו.
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+סיבוכיות זמן הריצה:
+\series default
+ מתבצע מספר קבוע של השמות לשדות וכן שימוש בבנאי 
+\lang english
+ListNode(T item)
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+\lang hebrew
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+אשר רץ בזמן קבוע, לכן סיבוכיות זמן הריצה הכוללת היא 
+\begin_inset Formula $O\left(1\right)$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Subsection
+פעולות המחלקה:
+\end_layout
+
+\begin_layout Subsubsection
+
+\series bold
+הפעולה 
+\lang english
+public void insertFirst(T item)
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+מה היא עושה: 
+\series default
+מכניסה את 
+\begin_inset Formula $item$
+\end_inset
+
+ לתחילת הרשימה.
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+כיצד היא פועלת:
+\series default
+ יוצרת מופע מסוג
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+\lang english
+ListNode
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+\lang hebrew
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+אשר מחזיק בתוכו את המידע 
+\begin_inset Formula $item$
+\end_inset
+
+, מעדכנת את המצביעים של של האיבר החדש, של הזקיף ושל האיבר שהיה הראשון ברשימה,
+ כך שהאיבר החדש עם מידע
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+
+\begin_inset Formula $item$
+\end_inset
+
+ יהיה הראשון.
+ כמו כן, הפעולה מגדילה את אורך הרשימה ב-
+\begin_inset Formula $1$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+סיבוכיות זמן הריצה: 
+\series default
+מתבצע מספר קבוע של השמות וכן שימוש בבנאי 
+\lang english
+ListNode(T item)
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+\lang hebrew
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+אשר רץ בזמן קבוע, לכן סיבוכיות זמן הריצה הכוללת היא 
+\begin_inset Formula $O\left(1\right)$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Subsubsection
+
+\series bold
+הפעולה 
+\lang english
+public ListNode retrieveFirstNode()
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+מה היא עושה: 
+\series default
+מחזירה את הצומת הראשון ברשימה המקושרת )הצומת הבא לאחר הזקיף 
+\begin_inset Formula $sentinel$
+\end_inset
+
+(.
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+סיבוכיות זמן הריצה: 
+\series default
+ישנה גישה לשתי שדות לכן 
+\begin_inset Formula $O\left(1\right)$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Subsubsection
+
+\series bold
+הפעולה 
+\lang english
+public ListNode retrieveNode(T item)
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+מה היא עושה: 
+\series default
+מחזירה את הצומת הראשון ברשימה )
+\lang english
+ListNode
+\lang hebrew
+(
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+שהמידע שנשמר בו הוא 
+\begin_inset Formula $item$
+\end_inset
+
+.
+ אם לא קיים כזה, מחזירה
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+\lang english
+null
+\lang hebrew
+.
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+כיצד היא פועלת:
+\series default
+ עוברת בלולאה על איברי הרשימה מתחילתה לסופה, באשר בכל איטרציה בודקת האם
+ המידע של הצומת הנוכחי שווה ל-
+\begin_inset Formula $item$
+\end_inset
+
+.
+ אם הם שווים, מחזירה את הצומת.
+ אם הלולאה נגמרה ולא הוחזר אף צומת, משמע לא קיים צומת ברשימה המקושרת שהמידע
+ שלו שווה ל-
+\begin_inset Formula $item$
+\end_inset
+
+, מחזירה
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+\lang english
+null
+\lang hebrew
+.
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+סיבוכיות זמן הריצה: 
+\series default
+כלל הפעולות בתוך הלולאה ומחוצה לה, ביניהן 
+\lang english
+getItem()
+\lang hebrew
+, מתבצעות בזמן קבוע.
+ אם הפעולה מחזירה צומת, סיבוכיות זמן הריצה שלה היא 
+\begin_inset Formula $O\left(i\right)$
+\end_inset
+
+ באשר 
+\begin_inset Formula $i$
+\end_inset
+
+ הוא המיקום של הצומת ברשימה המקושרת )באשר הצומת הראשון הוא במיקום 
+\begin_inset Formula $1$
+\end_inset
+
+(.
+ אם הפעולה מחזירה
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+\lang english
+null
+\lang hebrew
+, משמע הלולאה עברה על כלל הצמתים ברשימה המקושרת, סיבוכיות זמן הריצה היא
+ 
+\begin_inset Formula $O\left(\ell\right)$
+\end_inset
+
+ באשר 
+\begin_inset Formula $\ell$
+\end_inset
+
+ הוא אורכה של הרשימה.
+\end_layout
+
+\begin_layout Subsubsection
+
+\series bold
+הפעולה 
+\lang english
+public void deleteNode(ListNode node)
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+מה היא עושה: 
+\series default
+מוחקת את הצומת 
+\begin_inset Formula $node$
+\end_inset
+
+ מהרשימה המקושרת בה הוא נמצא.
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+כיצד היא פועלת:
+\series default
+ מעדכנת את המצביעים של האיבר הבא והקודם של הצומת 
+\begin_inset Formula $node$
+\end_inset
+
+ על מנת להסירו מהרשימה, וכן משימה
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+\lang english
+null
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+\lang hebrew
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+בשדות של הצומת 
+\begin_inset Formula $node$
+\end_inset
+
+ )על מנת 
+\begin_inset Quotes sld
+\end_inset
+
+לשחרר
+\begin_inset Quotes srd
+\end_inset
+
+ מצביעים לאובייקטים(.
+ כמו כן, הפעולה מקטינה את אורך הרשימה ב-
+\begin_inset Formula $1$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+סיבוכיות זמן הריצה: 
+\series default
+מתבצע מספר קבוע של השמות לשדות, לכן סיבוכיות זמן הריצה הכוללת היא 
+\begin_inset Formula $O\left(1\right)$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Newpage pagebreak
+\end_inset
+
+
+\end_layout
+
+\end_body
+\end_document
