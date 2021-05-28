@@ -73,10 +73,10 @@ public class Graph {
     public boolean addEdge(int node1_id, int node2_id){
         LinkedList<HashTable.HashTableNode>.ListNode listNode1 = this.tableIdToRepresentation.find(node1_id);
         LinkedList<HashTable.HashTableNode>.ListNode listNode2 = this.tableIdToRepresentation.find(node2_id);
-        if (listNode1 == null || listNode2 == null) {
+        if (node1_id == node2_id || listNode1 == null || listNode2 == null) {
             return false;
         }
-        this.neighborhoodsList.createEdgeInNeighborList(listNode1.item.nodeID, listNode2.item.nodeID);
+        this.neighborhoodsList.createEdgeInNeighborList(listNode1.item.node_id, listNode2.item.node_id);
         return true;
     }
 
@@ -89,7 +89,7 @@ public class Graph {
      */
     public boolean deleteNode(int node_id){
         HashTable.HashTableNode hashTableNode = tableIdToRepresentation.delete(node_id);
-        if (null == hashTableNode) {
+        if (hashTableNode == null) {
             return false;
         }
         neighborhoodsList.deleteNodeFromNeighborList(hashTableNode);
@@ -182,6 +182,7 @@ public class Graph {
             this.length += 1;
         }
 
+
         /**
          * Returns the first (list) node of the linked list.
          * @return the first (list) node of the linked list.
@@ -268,10 +269,28 @@ public class Graph {
     }
 
 
+    /**
+     * This class represents the edges in the graph by an adjacency list.
+     */
     public class NeighborhoodsList {
+        /**
+         * Each cell in this array corresponds to a vertex (the cell of deleted vertex is 'null'), which the
+         * linked list in it keeps the neighbors of the corresponding vertex and bidirectional pointers between
+         * the two representations of each edge.
+         */
         public LinkedList<NeighborNode>[] arrNeighborsLists;
+
+
+        /**
+         * The number of edges present in the graph.
+         */
         public int numEdges;
 
+
+        /**
+         * Creates an empty adjacency list, given its length (the number of vertices in the graph).
+         * @param numNodes - the number of vertices in the graph.
+         */
         public NeighborhoodsList(int numNodes) {
             this.arrNeighborsLists = new LinkedList[numNodes];
             for (int i = 0; i < numNodes; i++) {
@@ -281,22 +300,32 @@ public class Graph {
         }
 
 
-        public void createEdgeInNeighborList(int node1ID, int node2ID) {
-            NeighborNode neighborNode1 = new NeighborNode(node1ID);
-            NeighborNode neighborNode2 = new NeighborNode(node2ID);
+        /**
+         * This function adds an edge between the two vertices whose ids are specified.
+         * We assume that the two vertices are in the graph, and they are distinct.
+         *
+         * @param node1_id - the id of the first vertex.
+         * @param node2_id - the id of the second vertex.
+         */
+        public void createEdgeInNeighborList(int node1_id, int node2_id) {
+            NeighborNode neighborNode1 = new NeighborNode(node1_id);
+            NeighborNode neighborNode2 = new NeighborNode(node2_id);
 
-            HashTable.HashTableNode hashTableNode1 = tableIdToRepresentation.find(node1ID).item;
-            HashTable.HashTableNode hashTableNode2 = tableIdToRepresentation.find(node2ID).item;
+            HashTable.HashTableNode hashTableNode1 = tableIdToRepresentation.find(node1_id).item;
+            HashTable.HashTableNode hashTableNode2 = tableIdToRepresentation.find(node2_id).item;
 
             int node1NListIndex = hashTableNode1.nodeNListIndex;
             int node2NListIndex = hashTableNode2.nodeNListIndex;
 
+            //Inserts the neighbor nodes to the start of the neighbors lists.
             this.arrNeighborsLists[node1NListIndex].insertFirst(neighborNode2);
             this.arrNeighborsLists[node2NListIndex].insertFirst(neighborNode1);
 
-            neighborNode1.ListNodeOfNeighborInEdge = this.arrNeighborsLists[node1NListIndex].retrieveFirstNode();
-            neighborNode2.ListNodeOfNeighborInEdge = this.arrNeighborsLists[node2NListIndex].retrieveFirstNode();
+            //Updates the bidirectional pointers between the two representations of the new edge.
+            neighborNode1.listNodeOfNeighborInEdge = this.arrNeighborsLists[node1NListIndex].retrieveFirstNode();
+            neighborNode2.listNodeOfNeighborInEdge = this.arrNeighborsLists[node2NListIndex].retrieveFirstNode();
 
+            //Updates the neighborhood weight of the two nodes.
             neighborhoodWeightHeap.increaseNeighborhoodWeight(hashTableNode1.heapNode, hashTableNode2.heapNode.value.getWeight());
             neighborhoodWeightHeap.increaseNeighborhoodWeight(hashTableNode2.heapNode, hashTableNode1.heapNode.value.getWeight());
 
@@ -304,41 +333,68 @@ public class Graph {
         }
 
 
+        /**
+         * Given the hash-table node of a vertex in the graph,
+         * deletes the vertex of that hash-table node from the graph.
+         * We assume that the vertex is in the graph.
+         *
+         * @param hashTableNode - the hash-table node of the vertex to delete.
+         */
         public void deleteNodeFromNeighborList(HashTable.HashTableNode hashTableNode) {
+            //Retrieves the neighbors list of the vertex to delete.
             int nodeNListIndex = hashTableNode.nodeNListIndex;
-
             LinkedList<NeighborNode> NeighborsLinkedList = this.arrNeighborsLists[nodeNListIndex];
 
             int i = 0;
             LinkedList<NeighborNode>.ListNode listNode = NeighborsLinkedList.sentinel.next;
-            while (NeighborsLinkedList.length != i) {
+            while (NeighborsLinkedList.length != i) { //For each neighbor:
                 NeighborNode neighborNode = listNode.item;
-                HashTable.HashTableNode hashTableNeighborNode = tableIdToRepresentation.find(neighborNode.nodeID).item;
-                this.arrNeighborsLists[hashTableNeighborNode.nodeNListIndex].deleteNode(neighborNode.ListNodeOfNeighborInEdge);
-                this.numEdges -= 1;
+                HashTable.HashTableNode hashTableNeighborNode = tableIdToRepresentation.find(neighborNode.node_id).item;
 
+                //Deletes the neighbor node of the vertex to delete from the neighbors list of his neighbor.
+                this.arrNeighborsLists[hashTableNeighborNode.nodeNListIndex].deleteNode(neighborNode.listNodeOfNeighborInEdge);
+
+                //Remove the weight of the vertex to delete from the neighborhood weight of his neighbor.
                 neighborhoodWeightHeap.decreaseNeighborhoodWeight(hashTableNeighborNode.heapNode, hashTableNode.heapNode.value.getWeight());
 
+                this.numEdges -= 1;
                 listNode = listNode.next;
                 i += 1;
             }
 
+            //Deletes the neighborhood weight of the vertex to delete from the max-heap.
             neighborhoodWeightHeap.deleteHeapNode(hashTableNode.heapNode);
+            //Replaces the pointer to the neighbors list of the vertex to delete with 'null'.
             this.arrNeighborsLists[nodeNListIndex] = null;
         }
 
 
+        /**
+         * This class represents a neighbor node in a neighbors list of the other vertex in the edge.
+         */
         public class NeighborNode {
-            public int nodeID;
-            public LinkedList<NeighborNode>.ListNode ListNodeOfNeighborInEdge;
+            /**
+             * The id of the vertex which this neighbor node represents.
+             */
+            public int node_id;
 
-            public NeighborNode(int nodeID) {
-                this.nodeID = nodeID;
+            /**
+             * A pointer to the (list) node of the other vertex in the edge,
+             * which is located in the neighbors list of the current node.
+             */
+            public LinkedList<NeighborNode>.ListNode listNodeOfNeighborInEdge;
+
+            /**
+             * Creates a new neighbor node object, given the id of the vertex.
+             *
+             * @param node_id - the id of the vertex which this neighbor node represents.
+             */
+            public NeighborNode(int node_id) {
+                this.node_id = node_id;
             }
-
-
         }
     }
+
 
 
     public static class MaxHeap {
@@ -433,13 +489,13 @@ public class Graph {
         }
 
 
-        public void decreaseNeighborhoodWeight(HeapNode heapNode , int delta) {
+        public void decreaseNeighborhoodWeight(HeapNode heapNode, int delta) {
             heapNode.key -= delta;
             this.heapifyDown(heapNode.heapIndex);
         }
 
 
-        public void increaseNeighborhoodWeight(HeapNode heapNode , int delta) {
+        public void increaseNeighborhoodWeight(HeapNode heapNode, int delta) {
             heapNode.key += delta;
             this.heapifyUp(heapNode.heapIndex);
         }
@@ -496,38 +552,38 @@ public class Graph {
         }
 
 
-        public void insert(int nodeID, int nodeIndex, MaxHeap.HeapNode heapNode) {
-            if (this.find(nodeID) == null){
-                findChain(nodeID).insertFirst(new HashTableNode(nodeID, nodeIndex, heapNode));
+        public void insert(int node_id, int nodeIndex, MaxHeap.HeapNode heapNode) {
+            if (this.find(node_id) == null){
+                findChain(node_id).insertFirst(new HashTableNode(node_id, nodeIndex, heapNode));
             }
         }
 
 
-        public LinkedList<HashTableNode>.ListNode find(int nodeID) {
-            return this.findChain(nodeID).retrieveNode(new HashTableNode(nodeID, -1, null));
+        public LinkedList<HashTableNode>.ListNode find(int node_id) {
+            return this.findChain(node_id).retrieveNode(new HashTableNode(node_id, -1, null));
         }
 
 
-        public HashTableNode delete(int nodeID) {
-            LinkedList<HashTableNode>.ListNode listNode = this.find(nodeID);
+        public HashTableNode delete(int node_id) {
+            LinkedList<HashTableNode>.ListNode listNode = this.find(node_id);
 
             if (listNode == null) {
                 return null;
             }
 
             HashTableNode hashTableNode = listNode.item;
-            this.findChain(nodeID).deleteNode(listNode);
+            this.findChain(node_id).deleteNode(listNode);
             return hashTableNode;
 
         }
 
         public static class HashTableNode {
-            public int nodeID;
+            public int node_id;
             public int nodeNListIndex;
             public MaxHeap.HeapNode heapNode;
 
-            public HashTableNode(int nodeID, int nodeNListIndex, MaxHeap.HeapNode heapNode) {
-                this.nodeID = nodeID;
+            public HashTableNode(int node_id, int nodeNListIndex, MaxHeap.HeapNode heapNode) {
+                this.node_id = node_id;
                 this.nodeNListIndex = nodeNListIndex;
                 this.heapNode = heapNode;
             }
@@ -538,7 +594,7 @@ public class Graph {
                 if (this == o) return true;
                 if (o == null || getClass() != o.getClass()) return false;
                 HashTableNode that = (HashTableNode) o;
-                return nodeID == that.nodeID;
+                return node_id == that.node_id;
             }
         }
     }

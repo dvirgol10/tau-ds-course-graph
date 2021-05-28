@@ -921,7 +921,7 @@ int
 \begin_inset Formula $sentinel$
 \end_inset
 
-(
+(.
 \end_layout
 
 \begin_layout Subsection
@@ -1572,6 +1572,1132 @@ null
 \end_inset
 
 .
+\end_layout
+
+\begin_layout Standard
+\begin_inset Newpage pagebreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+המחלקה
+\family roman
+\series bold
+\shape up
+\size larger
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+\lang english
+NeighborNode
+\end_layout
+
+\begin_layout Subsection
+תיאור המחלקה:
+\end_layout
+
+\begin_layout Standard
+מחלקה זו מייצגת צומת ברשימה מקושרת דו-כיוונית.
+\end_layout
+
+\begin_layout Subsection
+שדות המחלקה:
+\end_layout
+
+\begin_layout Enumerate
+המשתנה הציבורי 
+\begin_inset Formula $node\_id$
+\end_inset
+
+ מסוג גנרי
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+\lang english
+int
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+\lang hebrew
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+אשר מייצג את מזהה הקודקוד אותו צומת השכנות מייצג.
+\end_layout
+
+\begin_layout Enumerate
+המשתנה הציבורי 
+\begin_inset Formula $listNodeOfNeighborInEdge$
+\end_inset
+
+ מסוג
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+\lang english
+LinkedList<NeighborNode>.ListNode
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+\lang hebrew
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+אשר מהווה מצביע למיקום צומת השכנות של הקודקוד השני בקשת )שבה נמצא הקודקוד
+ של צומת השכנות הנוכחי( ברשימת השכנים של הקודקוד הנוכחי.
+ כלומר, בהינתן שצומת השכנות הנוכחי מייצג את הקודקוד 
+\begin_inset Formula $v$
+\end_inset
+
+ בקשת 
+\begin_inset Formula $\left(u,v\right)$
+\end_inset
+
+ )צומת שכנות זה נמצא ברשימת השכנים של 
+\begin_inset Formula $u$
+\end_inset
+
+(, 
+\begin_inset Formula $listNodeOfNeighborInEdge$
+\end_inset
+
+ מצביע לצומת השכנות המייצג את הקודקוד 
+\begin_inset Formula $u$
+\end_inset
+
+ אשר נמצא ברשימת השכנים של 
+\begin_inset Formula $v$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Subsection
+בנאי המחלקה:
+\end_layout
+
+\begin_layout Subsubsection
+
+\series bold
+הבנאי 
+\lang english
+public NeighborNode(int node_id)
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+מה הוא עושה: 
+\series default
+פעולה בונה של המחלקה, מאתחל את שדה מזהה הקודקוד אותו צומת השכנות מייצג.
+\end_layout
+
+\begin_layout Itemize
+השדה 
+\begin_inset Formula $node\_id$
+\end_inset
+
+ מאותחל לפרמטר 
+\begin_inset Formula $node\_id$
+\end_inset
+
+ שניתן על ידי המשתמש.
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+סיבוכיות זמן הריצה:
+\series default
+ מתבצעת השמה אחת לשדה, לכן סיבוכיות זמן הריצה הכוללת היא 
+\begin_inset Formula $O\left(1\right)$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Newpage pagebreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+המחלקה
+\family roman
+\series bold
+\shape up
+\size larger
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+\lang english
+NeighborhoodsList
+\end_layout
+
+\begin_layout Subsection
+תיאור המחלקה:
+\end_layout
+
+\begin_layout Standard
+מחלקה זו מייצגת את הקשתות בגרף בעזרת רשימת שכנויות )רשימת סמיכויות(.
+\end_layout
+
+\begin_layout Subsection
+שדות המחלקה:
+\end_layout
+
+\begin_layout Enumerate
+המשתנה הציבורי 
+\begin_inset Formula $arrNeighborsLists$
+\end_inset
+
+ מסוג
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+\lang english
+LinkedList<NeighborNode>[]
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+\lang hebrew
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+באשר כל תא במערך זה מתאים לקודקוד בגרף )התאים של קודקודים שנמחקו יהיו
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+\lang english
+null
+\lang hebrew
+(, והרשימה המקושרת אליה הוא מצביע מאחסנת את השכנים של הקודקוד המתאים )כמו
+ גם מצביעים דו-כיוונים בין שני ייצוגיה של כל קשת 
+\begin_inset Formula $\left(u,v\right)$
+\end_inset
+
+(.
+\end_layout
+
+\begin_layout Enumerate
+המשתנה הציבורי 
+\begin_inset Formula $numEdges$
+\end_inset
+
+ מסוג
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+\lang english
+int
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+\lang hebrew
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+אשר מייצג את כמות הקשתות הנוכחיות בגרף.
+\end_layout
+
+\begin_layout Subsection
+בנאי המחלקה:
+\end_layout
+
+\begin_layout Subsubsection
+
+\series bold
+הבנאי 
+\lang english
+public NeighborhoodsList(int numNodes)
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+מה הוא עושה: 
+\series default
+פעולה בונה של המחלקה, מאתחל את תאי רשימת השכנויות להצביע לרשימות מקושרות
+ ריקות וכן מאתחל את כמות הקשתות ל-
+\begin_inset Formula $0$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Itemize
+השדה 
+\begin_inset Formula $arrNeighborsLists$
+\end_inset
+
+ מאותחל למערך באורך 
+\begin_inset Formula $numNodes$
+\end_inset
+
+ של מצביעים לרשימות מקושרות ריקות )שכן עם היווצרות הגרף לא קיימות בו קשתות(.
+\end_layout
+
+\begin_layout Itemize
+השדה 
+\begin_inset Formula $numEdges$
+\end_inset
+
+ מאותחל לכמות הקשתות בהיווצרות הגרף, שהיא 
+\begin_inset Formula $0$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+סיבוכיות זמן הריצה:
+\series default
+ כלל הפעולות בתוך הלולאה ומחוצה לה, ביניהן הפעולה הבונה 
+\lang english
+LinkedList()
+\lang hebrew
+, מתבצעות בזמן קבוע.
+ כמות האיטרציות של הלולאה היא 
+\begin_inset Formula $numNodes$
+\end_inset
+
+, לכן סיבוכיות זמן הריצה היא 
+\begin_inset Formula $O\left(numNodes\right)$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Subsection
+פעולות המחלקה:
+\end_layout
+
+\begin_layout Subsubsection
+
+\series bold
+הפעולה 
+\lang english
+public void createEdgeInNeighborList(int node1_id, int node2_id)
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+מה היא עושה: 
+\series default
+מקבלת שני מזהים של צמתים )
+\begin_inset Formula $node1\_id,\,node2\_id$
+\end_inset
+
+( אשר מניחה כי הם שונים, נמצאים בגרף ולא קיימת קשת ביניהם, ומוסיפה קשת ביניהם.
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+כיצד היא פועלת:
+\series default
+ יוצרת צמתי שכנות חדשים עבור שני מזהי הקודקודים בעזרת הפעולה הבונה 
+\lang english
+NeighborNode(node_id)
+\lang hebrew
+.
+ לאחר מכן, מחפשת )
+\lang english
+find(int node_id)
+\lang hebrew
+( את האיברים המתאימים להם בטבלת
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+\lang english
+hash
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+\lang hebrew
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+ובעזרתו מקבלת את המיפוי של המזהה שלהם לאינדקסים בגרף, כלומר המיקומים שלהם
+ במערך השכנויות.
+ לאחר מכן, בעזרת הפעולה 
+\lang english
+insertFirst(T item)
+\lang hebrew
+, מוסיפה לתחילת רשימת השכנים של כל אחד מהקודקודים את צומת השכנות של הקודקוד
+ השני, ומעדכנת את המצביעים הדו-כיווניים בין שני היצוגים של הקשת החדשה )כך
+ שצומת השכנות של קודקוד 
+\begin_inset Formula $1$
+\end_inset
+
+ יצביע לצומת ברשימה המקושרת בו שמור צומת השכנות של קודקוד 
+\begin_inset Formula $2$
+\end_inset
+
+, ולהיפך(.
+ לבסוף, הפעולה מעדכנת את סכום הסביבה של שני הקודקודים בערימת המקסימום )מוסיפה
+ לסביבה של קודקוד את משקל הקודקוד השני, שכן הוא שכן חדש( עם 
+\lang english
+increaseNeighborhoodWeight(HeapNode heapNode, int delta)
+\lang hebrew
+, וכן מוסיפה 
+\begin_inset Formula $1$
+\end_inset
+
+ למונה מספר הקשתות.
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+סיבוכיות זמן הריצה: 
+\series default
+הפעולה הבונה 
+\lang english
+NeighborNode(node_id)
+\lang hebrew
+, פעולת ההכנסה 
+\lang english
+insertFirst(T item)
+\lang hebrew
+, פעולת האחזרה של הצומת הראשון ברשימה מקושרת 
+\lang english
+retrieveFirstNode()
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+\lang hebrew
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+וכן פעולת האחזרה של המשקל של צומת 
+\lang english
+getWeight()
+\lang hebrew
+, כמו גם גישה לשדות, מתבצעות כולן ב-
+\begin_inset Formula $O\left(1\right)$
+\end_inset
+
+ זמן.
+ הפעולה 
+\lang english
+increaseNeighborhoodWeight(HeapNode heapNode, int delta)
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+\lang hebrew
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+מתבצעת ב-
+\begin_inset Formula $O\left(\log n\right)$
+\end_inset
+
+ זמן )שכן יש כרגע 
+\begin_inset Formula $n$
+\end_inset
+
+ קודקודים בגרף ובהתאם גם 
+\begin_inset Formula $n$
+\end_inset
+
+ איברים בערימת המקסימום(, ואילו פעולת החיפוש בטבלת
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+\lang english
+hash
+\lang hebrew
+, 
+\lang english
+find(int node_id)
+\lang hebrew
+, מתבצעת ב-
+\begin_inset Formula $O\left(1\right)$
+\end_inset
+
+ זמן בתוחלת.
+ לכן סך הכל סיבוכיות זמן הריצה של הפעולה היא 
+\begin_inset Formula $O\left(\log n\right)$
+\end_inset
+
+ זמן בתוחלת.
+\end_layout
+
+\begin_layout Subsubsection
+
+\series bold
+הפעולה 
+\lang english
+public void deleteNodeFromNeighborList(HashTable.HashTableNode hashTableNode)
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+מה היא עושה: 
+\series default
+מקבלת איבר בטבלת
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+\lang english
+hash
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+\lang hebrew
+ אשר מניחה כי מתאים לקודקוד קיים בגרף, ומוחקת את הקודקוד מהגרף.
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+כיצד היא פועלת:
+\series default
+ תחילה, בעזרת הצומת שהתקבל כפרמטר, מקבלת את המיפוי של הקודקוד לאינדקס בגרף,
+ כלומר המיקום שלו במערך השכנויות.
+ לאחר מכן, עוברת בלולאה על רשימת השכנים המתאימה לקודקוד.
+ עבור כל שכן של הקודקוד אותו אנו מוחקים, באמצעות המזהה שלו הפעולה מחפשת
+ את האיבר המתאים לשכן בטבלת
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+\lang english
+hash
+\lang hebrew
+, ובעזרת המיפוי בין מזהה של קודקוד לאינדקס בגרף וכן בעזרת המצביעים הדו-כיוונים
+ בין שני ייצוגיה של כל קשת, הפעולה מוחקת את צומת השכנות של הקודקוד למחיקה
+ מרשימת השכנות של כל אחד משכניו.
+ כמו כן, הפעולה מעדכנת את סכום הסביבה של כל שכן )מחסירה ממנה את משקל הקודקוד
+ אותו אנו מוחקים, שכן הוא כבר לא יהיה שכן( וכן מחסירה 
+\begin_inset Formula $1$
+\end_inset
+
+ ממונה מספר הקשתות עבור כל שכן.
+ לבסוף, הפעולה מוחקת מערימת המקסימום את האיבר המתאים לקודקוד אותו אנו מוחקים,
+ שכן הוא לא יימצא יותר בגרף ולכן אין משמעות לסביבה שלו )כלומר בערימת המקסימום
+ יימצאו רק איברים שמתאימים לקודקודים שקיימים כרגע בגרף(, וכן משימה
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+\lang english
+null
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+\lang hebrew
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+במקום המצביע לרשימת השכנים שלו על מנת לבטא את מחיקת הקודקוד מהגרף וכן 
+\begin_inset Quotes sld
+\end_inset
+
+לשחרר
+\begin_inset Quotes srd
+\end_inset
+
+ את המצביע אליה )שכן אין בה צורך יותר(.
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+סיבוכיות זמן הריצה: 
+\series default
+נשים לב כי פעולות הגישה לשדות ולאיבר במערך אשר לפני, אחרי ובתוך הלולאה מתבצעות
+ ב-
+\begin_inset Formula $O\left(1\right)$
+\end_inset
+
+ זמן, וכן פעולת 
+\lang english
+deleteHeapNode(HeapNode heapNode)
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+\lang hebrew
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+שמתבצעת לאחר הלולאה רצה ב-
+\begin_inset Formula $O\left(\log n\right)$
+\end_inset
+
+ זמן )שכן יש כרגע 
+\begin_inset Formula $n$
+\end_inset
+
+ קודקודים בגרף ובהתאם גם 
+\begin_inset Formula $n$
+\end_inset
+
+ איברים בערימת המקסימום(.
+ מספר האיטרציות של הלולאה הוא דרגתו של הצומת 
+\begin_inset Formula $v$
+\end_inset
+
+ אותו אנו מוחקים )כלומר, מספר שכניו בגרף כרגע(, נסמנו 
+\begin_inset Formula $d_{v}$
+\end_inset
+
+, שכן הלולאה עוברת על רשימת השכנים שלו.
+ בכל איטרציה בנוסף לגישה והשמה לשדות ב-
+\begin_inset Formula $O\left(1\right)$
+\end_inset
+
+, מתבצעות הפעולות 
+\lang english
+find(int node_id)
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+\lang hebrew
+ שרצה ב-
+\begin_inset Formula $O\left(1\right)$
+\end_inset
+
+ זמן בתוחלת, 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+\lang english
+deleteNode(ListNode node)
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+\lang hebrew
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+ו-
+\lang english
+getWeight()
+\lang hebrew
+ שרצות ב-
+\begin_inset Formula $O\left(1\right)$
+\end_inset
+
+ זמן במקרה הגרוע וכן 
+\lang english
+decreaseNeighborhoodWeight(HeapNode heapNode, int delta)
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+\lang hebrew
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+שרצה ב-
+\begin_inset Formula $O\left(\log n\right)$
+\end_inset
+
+ זמן במקרה הגרוע.
+ לכן סך הכל סיבוכיות זמן הריצה של הפעולה היא 
+\begin_inset Formula $O\left(\left(d_{v}+1\right)\log n\right)$
+\end_inset
+
+ בתוחלת.
 \end_layout
 
 \begin_layout Standard
