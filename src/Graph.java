@@ -56,7 +56,7 @@ public class Graph {
         if (listNode == null) {
             return -1;
         }
-        return this.tableIdToRepresentation.find(node_id).item.heapNode.key;
+        return listNode.item.heapNode.key;
     }
 
 
@@ -76,7 +76,7 @@ public class Graph {
         if (node1_id == node2_id || listNode1 == null || listNode2 == null) {
             return false;
         }
-        this.neighborhoodsList.createEdgeInNeighborList(listNode1.item.node_id, listNode2.item.node_id);
+        this.neighborhoodsList.createEdgeInNeighborList(node1_id, node2_id);
         return true;
     }
 
@@ -143,7 +143,7 @@ public class Graph {
     }
 
     /**
-     * This generic class implements specific necessary operations of the ADT list by doubly linked list.
+     * This generic class implements specific necessary operations of the ADT list (and more) by a doubly linked list.
      */
     public static class LinkedList<T> {
         /**
@@ -219,7 +219,7 @@ public class Graph {
          *
          * @param node - the (list) node to delete.
          */
-        public void deleteNode(ListNode node) {
+        public void deleteNodeFromList(ListNode node) {
             node.prev.next = node.next;
             node.next.prev = node.prev;
             node.item = null;
@@ -352,7 +352,7 @@ public class Graph {
                 HashTable.HashTableNode hashTableNeighborNode = tableIdToRepresentation.find(neighborNode.node_id).item;
 
                 //Deletes the neighbor node of the vertex to delete from the neighbors list of his neighbor.
-                this.arrNeighborsLists[hashTableNeighborNode.nodeNListIndex].deleteNode(neighborNode.listNodeOfNeighborInEdge);
+                this.arrNeighborsLists[hashTableNeighborNode.nodeNListIndex].deleteNodeFromList(neighborNode.listNodeOfNeighborInEdge);
 
                 //Remove the weight of the vertex to delete from the neighborhood weight of his neighbor.
                 neighborhoodWeightHeap.decreaseNeighborhoodWeight(hashTableNeighborNode.heapNode, hashTableNode.heapNode.value.getWeight());
@@ -597,9 +597,9 @@ public class Graph {
         }
 
 
-        
+
         /**
-         * This class represents a (heap) node in the heap, which his key is neighborhood weight.
+         * This class represents a (heap) node in the heap, which its key is neighborhood weight.
          */
         public class HeapNode {
             /**
@@ -635,48 +635,108 @@ public class Graph {
     }
 
 
+
+    /**
+     * This class implements specific necessary operations of the ADT dictionary (and more) by a hash table.
+     */
     public static class HashTable {
+        /**
+         * A prime number that is used for the modular hash function.
+         */
         public int p;
+
+        /**
+         * A number between 1 and p-1 that is used for the modular hash function.
+         */
         public int a;
+
+        /**
+         * A number between 0 and p-1 that is used for the modular hash function.
+         */
         public int b;
-        LinkedList<HashTableNode>[] table;
+
+        /**
+         * The array that represents the hash table.
+         */
+        public LinkedList<HashTableNode>[] table;
 
 
+        /**
+         * Initializes the hash table that maps node id to hash node.
+         *
+         * @param maxHeap - the max-heap that maintains the heaviest neighborhood in the graph.
+         */
         public HashTable(MaxHeap maxHeap) {
+            //Initializes the hash table.
             this.table = new LinkedList[maxHeap.getSize()];
             for (int i = 0; i < maxHeap.getSize(); i++) {
                 this.table[i] = new LinkedList<HashTableNode>();
             }
-            this.p = 1000000009;
 
+            //Initializes the modular hash function.
+            this.p = 1000000009;
             Random random = new Random();
             this.a = random.nextInt(this.p - 1) + 1;
             this.b = random.nextInt(this.p);
             //TODO: assign values to this.a and this.b
 
+            //Inserts the elements to the hash table.
             for (int i = 0; i < maxHeap.getSize(); i++) {
                 this.insert(maxHeap.heapArr[i].value.getId(), i, maxHeap.heapArr[i]);
             }
         }
 
 
-        public LinkedList<HashTableNode> findChain(int x) {
-            return this.table[((this.a * x + this.b) % this.p) % this.table.length];
+        /**
+         * Returns the chain in the hash table where the key node_id should be.
+         *
+         * @param node_id - an id of a vertex.
+         * @return the chain in the hash table where the key node_id should be.
+         */
+        public LinkedList<HashTableNode> findChain(int node_id) {
+            return this.table[((this.a * node_id + this.b) % this.p) % this.table.length];
         }
 
 
-        public void insert(int node_id, int nodeIndex, MaxHeap.HeapNode heapNode) {
-            if (this.find(node_id) == null){
-                findChain(node_id).insertFirst(new HashTableNode(node_id, nodeIndex, heapNode));
-            }
-        }
-
-
+        /**
+         * Returns the list node in a hash table chain that contains the hash table node with the key node_id,
+         * or null if such a list node does not exist.
+         *
+         * @param node_id - an id of a vertex.
+         * @return the list node that contains the hash table node with the key node_id,
+         * or null if such a list node does not exist.
+         */
         public LinkedList<HashTableNode>.ListNode find(int node_id) {
             return this.findChain(node_id).retrieveNode(new HashTableNode(node_id, -1, null));
         }
 
 
+        /**
+         * If an hash table node with the key node_id does not exists in the table,
+         * inserts the trio node_id, nodeIndex and heapNode to the hash table (wrapped with HashTableNode object),
+         * with the key node_id.
+         * Otherwise, the function does nothing.
+         *
+         * @param node_id - an id of a vertex
+         * @param nodeIndex - the index of a vertex with the id node_id (this is the
+         *                  fixed index of the vertex in the neighborhoods list)
+         * @param heapNode - the heap node in max-heap that corresponds to the vertex with the id node_id
+         */
+        public void insert(int node_id, int nodeIndex, MaxHeap.HeapNode heapNode) {
+            if (this.find(node_id) == null){
+                this.findChain(node_id).insertFirst(new HashTableNode(node_id, nodeIndex, heapNode));
+            }
+        }
+
+
+        /**
+         * Deletes the list node in a hash table chain that contains the hash table node with the key node_id,
+         * if such a list node exist.
+         *
+         * @param node_id - an id of a vertex.
+         * @return the hash table node that contains the key node_id,
+         * or null if such a hash table node does not exist.
+         */
         public HashTableNode delete(int node_id) {
             LinkedList<HashTableNode>.ListNode listNode = this.find(node_id);
 
@@ -685,37 +745,67 @@ public class Graph {
             }
 
             HashTableNode hashTableNode = listNode.item;
-            this.findChain(node_id).deleteNode(listNode);
+            this.findChain(node_id).deleteNodeFromList(listNode);
             return hashTableNode;
 
         }
 
+
+
+        /**
+         * This class represents a hash table node in the hash table of the graph, which its key is node_id.
+         */
         public static class HashTableNode {
+            /**
+             * The id of the vertex which this hash table node represents.
+             */
             public int node_id;
+
+            /**
+             * The index of a vertex with the id node_id (this is the fixed index of the vertex in the neighborhoods list)
+             */
             public int nodeNListIndex;
+
+            /**
+             * The heap node in max-heap that corresponds to the vertex with the id node_id.
+             */
             public MaxHeap.HeapNode heapNode;
 
+
+            /**
+             * Creates a new hash table node object, given its key (node_id),
+             * and the values nodeNListIndex and heapNode.
+             *
+             * @param node_id - The id of the vertex which this hash table node represents.
+             * @param nodeNListIndex - The index of a vertex with the id node_id (this is the fixed
+             *                       index of the vertex in the neighborhoods list)
+             * @param heapNode - The heap node in max-heap that corresponds to the vertex with the id node_id.
+             */
             public HashTableNode(int node_id, int nodeNListIndex, MaxHeap.HeapNode heapNode) {
                 this.node_id = node_id;
                 this.nodeNListIndex = nodeNListIndex;
                 this.heapNode = heapNode;
             }
 
-
+            /**
+             *
+             * @param o - Object o to check
+             * @return 'true' if
+             * o is a HashTableNode object and
+             * its node_id field is equal to the node_id field of the current hash table node.
+             * Otherwise, the function returns 'false'.
+             */
             @Override
             public boolean equals(Object o) {
-                if (this == o) return true;
-                if (o == null || getClass() != o.getClass()) return false;
+                if (this == o) {
+                    return true;
+                }
+                if (o == null || this.getClass() != o.getClass()) {
+                    return false;
+                }
                 HashTableNode that = (HashTableNode) o;
-                return node_id == that.node_id;
+                return this.node_id == that.node_id;
             }
         }
     }
-
-
-
 }
-
-
-
-
