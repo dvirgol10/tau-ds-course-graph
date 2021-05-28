@@ -12,9 +12,19 @@ import java.util.Random;
  *
  */
 public class Graph {
-
+    /**
+     * The adjacency list represents the edges in the graph.
+     */
     public NeighborhoodsList neighborhoodsList;
+
+    /**
+     * The (binary) Max-Heap that maintains the heaviest neighborhood.
+     */
     public MaxHeap neighborhoodWeightHeap;
+
+    /**
+     * The hash table that maps node id to hash node (which contains relevant info about the vertex).
+     */
     public HashTable tableIdToRepresentation;
 
 
@@ -37,7 +47,7 @@ public class Graph {
      * @return a Node object representing the correct node. If there is no node in the graph, returns 'null'.
      */
     public Node maxNeighborhoodWeight(){
-        if (this.neighborhoodWeightHeap.getSize() == 0) {
+        if (this.getNumNodes() == 0) {
             return null;
         }
         return this.neighborhoodWeightHeap.max();
@@ -94,6 +104,24 @@ public class Graph {
         }
         neighborhoodsList.deleteNodeFromNeighborList(hashTableNode);
         return true;
+    }
+
+
+    /**
+     * Returns the number of vertices that present in the graph.
+     * @return the number of vertices that present in the graph.
+     */
+    public int getNumNodes() {
+        return this.neighborhoodWeightHeap.getSize();
+    }
+
+
+    /**
+     * Returns the number of edges that present in the graph.
+     * @return the number of edges that present in the graph.
+     */
+    public int getNumEdges() {
+        return this.neighborhoodsList.numEdges;
     }
 
 
@@ -282,7 +310,7 @@ public class Graph {
 
 
         /**
-         * The number of edges present in the graph.
+         * The number of edges that present in the graph.
          */
         public int numEdges;
 
@@ -747,7 +775,6 @@ public class Graph {
             HashTableNode hashTableNode = listNode.item;
             this.findChain(node_id).deleteNodeFromList(listNode);
             return hashTableNode;
-
         }
 
 

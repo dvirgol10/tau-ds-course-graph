@@ -7335,5 +7335,1712 @@ find(int node_id)
 
 \end_layout
 
+\begin_layout Section
+המחלקה
+\family roman
+\series bold
+\shape up
+\size larger
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+\lang english
+Graph
+\end_layout
+
+\begin_layout Subsection
+תיאור המחלקה:
+\end_layout
+
+\begin_layout Standard
+מחלקה זו מייצגת גרף שמתחזק ביעילות משקלי סביבות תוך אפשרות להוסיף קשתות
+ ולמחוק קודקודים.
+\end_layout
+
+\begin_layout Subsection
+שדות המחלקה:
+\end_layout
+
+\begin_layout Enumerate
+המשתנה הציבורי 
+\begin_inset Formula $neighborhoodsList$
+\end_inset
+
+ מסוג
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+\lang english
+NeighborhoodsList
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+\lang hebrew
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+אשר מייצג את רשימת השכנויות של הגרף.
+\end_layout
+
+\begin_layout Enumerate
+המשתנה הציבורי 
+\begin_inset Formula $neighborhoodWeightHeap$
+\end_inset
+
+ מסוג
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+\lang english
+MaxHeap
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+\lang hebrew
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+אשר מייצג ערימת מקסימום בינארית המתחזקת את משקל הסביבה המקסימלי של הקודקודים
+ בגרף.
+\end_layout
+
+\begin_layout Enumerate
+המשתנה הציבורי 
+\begin_inset Formula $tableIdToRepresentation$
+\end_inset
+
+ מסוג
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+\lang english
+HashTable
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+\lang hebrew
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+אשר מייצג טבלת
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+\lang english
+hash
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+\lang hebrew
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+הממפה מזהה קודקוד לצומת
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+\lang english
+hash
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+\lang hebrew
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+המתאים לו המחזיק את צומת הערימה שמתאים לקודקוד ואת האינדקס של הקודקוד )האינדקס
+ של הקודקוד ברשימת השכנויות )כלומר אינדקס כזה הוא מעין מיפוי חח
+\begin_inset Quotes srd
+\end_inset
+
+ע ועל בין מזהה קודקוד לבין מספר בין 
+\begin_inset Formula $0$
+\end_inset
+
+ ל-
+\begin_inset Formula $N-1$
+\end_inset
+
+, אשר יקבע לפי סדר ההופעה של הקודקודים בערימה הבינארית במצב ההתחלתי של הגרף((.
+\end_layout
+
+\begin_layout Subsection
+בנאי המחלקה:
+\end_layout
+
+\begin_layout Subsubsection
+
+\series bold
+הבנאי 
+\lang english
+public Graph(Node[] nodes)
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+מה הוא עושה: 
+\series default
+מקבלת מערך צמתים מאורך 
+\begin_inset Formula $N$
+\end_inset
+
+ )כאשר כל אובייקט מכיל את המזהה שלו ואת המשקל שלו( ומאתחלת את מבנה הנתונים
+ כגרף עם 
+\begin_inset Formula $N$
+\end_inset
+
+ צמתים אלו וללא קשתות.
+ אנו מניחים כי לשני קודקודים שונים יהיה מזהה שונה.
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+כיצד הוא פועלת:
+\series default
+ יוצרת את רשימת השכנויות, לאחריה את ערימת המקסימום המתחזקת את משקלי הסביבות
+ ולבסוף את טבלת ה-
+\lang english
+hash
+\lang hebrew
+.
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+סיבוכיות זמן הריצה:
+\series default
+ הפעולות 
+\lang english
+NeighborhoodsList(int numNodes)
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+\lang hebrew
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+ו-
+\lang english
+MaxHeap(Node[] nodes)
+\lang hebrew
+ מתבצעת בזמן לינארי בגודל הקלט, כלומר ב-
+\begin_inset Formula $O\left(N\right)$
+\end_inset
+
+ זמן.
+ כמו כן, ראינו כי הפעולה מתבצעת בתוחלת בזמן לינארי במספר הקודקודים בגרף
+ כרגע, כלומר ב-
+\begin_inset Formula $O\left(N\right)$
+\end_inset
+
+ זמן בתוחלת.
+ סך הכל סיבוכיות הזמן של הבנאי היא 
+\begin_inset Formula $O\left(N\right)$
+\end_inset
+
+ זמן בתוחלת.
+\end_layout
+
+\begin_layout Subsection
+פעולות המחלקה:
+\end_layout
+
+\begin_layout Subsubsection
+
+\series bold
+הפעולה 
+\lang english
+public Node maxNeighborhoodWeight()
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+מה היא עושה: 
+\series default
+מחזירה את הקודקוד 
+\begin_inset Formula $v$
+\end_inset
+
+ כך שמשקל הסביבה שלו 
+\begin_inset Formula $B_{v}$
+\end_inset
+
+ הוא מקסימלי.
+ אם בגרף אין צמתים, מחזירה
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+\lang english
+null
+\lang hebrew
+.
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+כיצד היא פועלת:
+\series default
+ בודקת אם מספר הצמתים בגרף הוא 
+\begin_inset Formula $0$
+\end_inset
+
+.
+ אם כן, מחזירה
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+\lang english
+null
+\lang hebrew
+.
+ אחרת משתמשת ב-
+\lang english
+max()
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+\lang hebrew
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+על מנת להחזיר את הקודקוד עם משקל הסביבה המקסימלי.
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+סיבוכיות זמן הריצה: 
+\series default
+ראינו כי הפעולות 
+\lang english
+getNumNodes()
+\lang hebrew
+ ו-
+\lang english
+max()
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+\lang hebrew
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+רצות ב-
+\begin_inset Formula $O\left(1\right)$
+\end_inset
+
+ זמן, לכן סיבוכיות זמן הריצה היא 
+\begin_inset Formula $O\left(1\right)$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Subsubsection
+
+\series bold
+הפעולה 
+\lang english
+public int getNeighborhoodWeight(int node_id)
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+מה היא עושה: 
+\series default
+בהינתן מזהה קודקוד 
+\begin_inset Formula $node\_id$
+\end_inset
+
+, מחזירה את משקל הסביבה של הקודקוד בעל מזהה זה אם הוא בגרף.
+ אם אין קודקוד בעל מזהה זה בגרף, מחזירה 
+\begin_inset Formula $-1$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+כיצד היא פועלת:
+\series default
+ בעזרת הפעולה 
+\lang english
+find(int node_id)
+\lang hebrew
+ מחפשת את הצומת בשרשרת של טבלת ה-
+\lang english
+hash
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+\lang hebrew
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+אשר מכיל את צומת ה-
+\lang english
+hash
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+\lang hebrew
+ אשר 
+\begin_inset Formula $node\_id$
+\end_inset
+
+ הוא מפתחו.
+ אם לא קיים כזה, כלומר אם פעולת החיפוש החזירה 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+\lang english
+null
+\lang hebrew
+, הפעולה מחזירה 
+\begin_inset Formula $-1$
+\end_inset
+
+.
+ אחרת, הפעולה משתמשת בערך ההחזרה על מנת לגשת לצומת הערימה המתאים לקודקוד
+ עם המזהה 
+\begin_inset Formula $node\_id$
+\end_inset
+
+, ומחזירה את שדה המפתח שלו, כלומר את משקל הסביבה המתאים.
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+סיבוכיות זמן הריצה: 
+\series default
+ראינו כי הפעולה 
+\lang english
+find(int node_id)
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+\lang hebrew
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+רצה ב-
+\begin_inset Formula $O\left(1\right)$
+\end_inset
+
+ זמן בתוחלת, וכן ידוע כי השוואה וגישה לשדות רצות ב-
+\begin_inset Formula $O\left(1\right)$
+\end_inset
+
+ זמן.
+ על כן, סיבוכיות זמן הריצה הכוללת היא 
+\begin_inset Formula $O\left(1\right)$
+\end_inset
+
+ במקרה הגרוע.
+\end_layout
+
+\begin_layout Subsubsection
+
+\series bold
+הפעולה 
+\lang english
+public boolean addEdge(int node1_id, int node2_id)
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+מה היא עושה: 
+\series default
+מקבלת שני מזהים של קודקודים 
+\begin_inset Formula $node1\_id$
+\end_inset
+
+ ו-
+\begin_inset Formula $node2\_id$
+\end_inset
+
+.
+ אם המזהים שונים ושני הקודקודים נמצאים בגרף, הפעולה מוסיפה קשת ביניהם.
+ אחרת, היא איננה עושה דבר.
+ אנו מניחים כי בעת הקריאה לפעולה זו, לא קיימת קשת בין שני הקודקודים.
+ הפונקציה מחזירה
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+\lang english
+true
+\lang hebrew
+ אם נוספה קשת ואחרת מחזירה
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+\lang english
+false
+\lang hebrew
+.
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+כיצד היא פועלת:
+\series default
+ בעזרת הפעולה 
+\lang english
+find(int node_id)
+\lang hebrew
+ מחפשת את הצמתים בשרשרת של טבלת ה-
+\lang english
+hash
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+\lang hebrew
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+אשר מכילים את צמתי ה-
+\lang english
+hash
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+\lang hebrew
+ אשר 
+\begin_inset Formula $node1\_id,node2\_id$
+\end_inset
+
+ הם מפתחם.
+ אם אחד מהם לא קיים, כלומר אם אחת )או יותר( מפעולות החיפוש החזירה 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+\lang english
+null
+\lang hebrew
+, הפעולה מחזירה
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+\lang english
+false
+\lang hebrew
+.
+ אם שני המזהים 
+\begin_inset Formula $node1\_id$
+\end_inset
+
+ ו-
+\begin_inset Formula $node2\_id$
+\end_inset
+
+ שווים, הפעולה מחזירה
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+\lang english
+false
+\lang hebrew
+.
+ אחרת, הפעולה מבצעת את הפעולה 
+\lang english
+createEdgeInNeighborList(int node1_id, int node2_id)
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+\lang hebrew
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+על מנת ליצור את הקשת ברשימת השכנויות וכן לעדכן את הערכים בערימת המקסימום.
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+סיבוכיות זמן הריצה: 
+\series default
+ראינו כי הפעולה 
+\lang english
+find(int node_id)
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+\lang hebrew
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+רצה ב-
+\begin_inset Formula $O\left(1\right)$
+\end_inset
+
+ זמן בתוחלת, וכן ידוע כי השוואות רצות ב-
+\begin_inset Formula $O\left(1\right)$
+\end_inset
+
+ זמן.
+ כמו כן, ראינו כי סיבוכיות זמן הריצה של הפעולה 
+\lang english
+createEdgeInNeighborList(int node1_id, int node2_id)
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+\lang hebrew
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+היא 
+\begin_inset Formula $O\left(\log n\right)$
+\end_inset
+
+.
+ על כן, סיבוכיות זמן הריצה הכוללת היא 
+\begin_inset Formula $O\left(\log n\right)$
+\end_inset
+
+ בתוחלת.
+\end_layout
+
+\begin_layout Subsubsection
+
+\series bold
+הפעולה 
+\lang english
+public boolean deleteNode(int node_id)
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+מה היא עושה: 
+\series default
+מוחקת את הקודקוד 
+\begin_inset Formula $v$
+\end_inset
+
+ בעל המזהה 
+\begin_inset Formula $node\_id$
+\end_inset
+
+ )ואת כל הקשתות המערבות אותו( מהגרף, אם הוא קיים )אחרת, הפעולה לא מבצעת
+ דבר(.
+ נציין כי משקלו של קודקוד שנמחק אינו נספר יותר במשקל הסביבה של אף קודקוד
+ אחר.
+ הפונקציה מחזירה
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+\lang english
+true
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+\lang hebrew
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+אם נמחק צומת, ואחרת
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+\lang english
+false
+\lang hebrew
+.
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+כיצד היא פועלת:
+\series default
+ בעזרת הפעולה 
+\lang english
+delete(int node_id)
+\lang hebrew
+, מוחקת את הצומת בשרשרת של טבלת ה-
+\lang english
+hash
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+\lang hebrew
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+אשר מכיל את צומת ה-
+\lang english
+hash
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+\lang hebrew
+ אשר 
+\begin_inset Formula $node\_id$
+\end_inset
+
+ הוא מפתחו, אם לא קיים כזה צומת.
+ ערך ההחזרה שלה הוא צומת ה-
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+\lang english
+hash
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+\lang hebrew
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+אשר 
+\begin_inset Formula $node\_id$
+\end_inset
+
+ הוא מפתחו, או
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+\lang english
+null
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+\lang hebrew
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+אם לא היה קיים כזה.
+ אזי אם ערך ההחזרה הוא
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+\lang english
+null
+\lang hebrew
+, משמע לא קיים בגרף קודקוד עם מזהה 
+\begin_inset Formula $node\_id$
+\end_inset
+
+, הפעולה מחזירה
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+\lang english
+false
+\lang hebrew
+.
+ אחרת, משתמשת בפעולה 
+\lang english
+deleteNodeFromNeighborList(HashTable.HashTableNode hashTableNode)
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+\lang hebrew
+ על מנת למחוק את הקודקוד מהגרף, ומחזירה 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+\lang english
+true
+\lang hebrew
+.
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+סיבוכיות זמן הריצה: 
+\series default
+ראינו כי הפעולה 
+\lang english
+find(int node_id)
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+\lang hebrew
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+רצה ב-
+\begin_inset Formula $O\left(1\right)$
+\end_inset
+
+ זמן בתוחלת, וכן הפעולה 
+\lang english
+deleteNodeFromNeighborList(HashTable.HashTableNode hashTableNode)
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+\lang hebrew
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+רצה ב-
+\begin_inset Formula $O\left(\left(d_{v}+1\right)\log n\right)$
+\end_inset
+
+ זמן בתוחלת באשר 
+\begin_inset Formula $d_{v}$
+\end_inset
+
+ היא דרגתו של הצומת 
+\begin_inset Formula $v$
+\end_inset
+
+ )כלומר, מספר שכניו בגרף כרגע(.
+ לכן סך הכל סיבוכיות זמן הריצה של הפעולה היא 
+\begin_inset Formula $O\left(\left(d_{v}+1\right)\log n\right)$
+\end_inset
+
+ בתוחלת.
+\end_layout
+
+\begin_layout Subsubsection
+
+\series bold
+הפעולה 
+\lang english
+public int getNumNodes()
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+מה היא עושה: 
+\series default
+מחזירה את מספר הצמתים שנמצאים בגרף כרגע.
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+סיבוכיות זמן הריצה: 
+\series default
+ישנה גישה לשדה וכן שימוש בפעולה
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+\lang english
+getSize()
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+\lang hebrew
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+ב-
+\begin_inset Formula $O\left(1\right)$
+\end_inset
+
+ זמן, לכן סיבוכיות זמן הריצה היא 
+\begin_inset Formula $O\left(1\right)$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Subsubsection
+
+\series bold
+הפעולה 
+\lang english
+public int getNumEdges()
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+מה היא עושה: 
+\series default
+מחזירה את מספר הקשתות שנמצאות בגרף כרגע.
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+סיבוכיות זמן הריצה: 
+\series default
+ישנן שתי גישות לשדות, לכן סיבוכיות זמן הריצה היא 
+\begin_inset Formula $O\left(1\right)$
+\end_inset
+
+.
+\end_layout
+
 \end_body
 \end_document
