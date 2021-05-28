@@ -32,7 +32,7 @@ public class Graph {
 
 
     /**
-     * This method returns the node in the graph with the maximum neighborhood weight.
+     * This method returns the node in the graph with the maximal neighborhood weight.
      * Note: nodes that have been removed from the graph using deleteNode are no longer in the graph.
      * @return a Node object representing the correct node. If there is no node in the graph, returns 'null'.
      */
@@ -397,52 +397,107 @@ public class Graph {
 
 
 
+    /**
+     * This class implements a (binary) Max-Heap that maintains the heaviest neighborhood.
+     *
+     */
     public static class MaxHeap {
+        /**
+         * The array that represents the heap.
+         */
         public HeapNode[] heapArr;
+
+        /**
+         * The size of the heap, that is, the number neighborhoods present
+         * in the graph (the current number of vertices in the graph).
+         */
         public int size;
 
 
+        /**
+         * Initializes the max-heap of the neighborhood weights with a given set of nodes.
+         * The graph has no edges, so in practice the neighborhood weights are node weights.
+         * We assume that the ids of distinct nodes are distinct.
+         *
+         * @param nodes - an array of node objects
+         */
         public MaxHeap(Node[] nodes) {
+            //Initialize the array of the heap.
             this.heapArr = new HeapNode[nodes.length];
             this.size = nodes.length;
             for (int i = 0; i < nodes.length; i++) {
                 this.heapArr[i] = new HeapNode(nodes[i].getWeight(), nodes[i], i);
             }
 
+            //Construct a legal binary max-heap.
             int j = parent(this.size - 1);
             while (j >= 0) {
                 this.heapifyDown(j);
                 j -= 1;
             }
-
-
         }
 
 
+        /**
+         * Returns the index of the left child of the (heap) node at index i.
+         *
+         * @param i - an index of a (heap) node in the heap.
+         * @return the index of the left child of the (heap) node at index i.
+         */
         public int left(int i) {
             return 2 * i + 1;
         }
 
 
+        /**
+         * Returns the index of the right child of the (heap) node at index i.
+         *
+         * @param i - an index of a (heap) node in the heap.
+         * @return the index of the right child of the (heap) node at index i.
+         */
         public int right(int i) {
             return 2 * i + 2;
         }
 
 
+        /**
+         * Returns the index of the parent of the (heap) node at index i.
+         *
+         * @param i - an index of a (heap) node in the heap.
+         * @return the index of the parent of the (heap) node at index i.
+         */
         public int parent(int i) {
             return (i + 1) / 2 - 1;
         }
 
 
+        /**
+         * Returns the size of the heap.
+         * @return the size of the heap.
+         */
         public int getSize() {
             return this.size;
         }
 
+
+        /**
+         * Sets heapNode at index i in the heap, and updates his index field.
+         *
+         * @param heapNode - a (heap) node to set at index i in the heap.
+         * @param i - an index to set heapNode at.
+         */
         public void setHeapNodeAtIndex(HeapNode heapNode, int i) {
             this.heapArr[i] = heapNode;
             heapNode.heapIndex = i;
         }
 
+
+        /**
+         * Swap the (heap) nodes at indices i and j in the heap.
+         *
+         * @param i - an index in the heap.
+         * @param j - an index in the heap.
+         */
         public void swapHeapNodes(int i, int j) {
             HeapNode tmp = this.heapArr[i];
             this.setHeapNodeAtIndex(this.heapArr[j], i);
@@ -450,6 +505,11 @@ public class Graph {
         }
 
 
+        /**
+         * Corrects upwards the (heap) node at index i, if it is needed.
+         *
+         * @param i - an index to correct in the heap.
+         */
         public void heapifyUp(int i) {
             while (i > 0 && this.heapArr[i].key > this.heapArr[parent(i)].key) {
                 this.swapHeapNodes(i, parent(i));
@@ -458,6 +518,11 @@ public class Graph {
         }
 
 
+        /**
+         * Corrects downwards the (heap) node at index i, if it is needed.
+         *
+         * @param i - an index to correct in the heap.
+         */
         public void heapifyDown(int i) {
             int l;
             int r;
@@ -474,7 +539,7 @@ public class Graph {
                     largest = r;
                 }
                 if (largest > i) {
-                    swapHeapNodes(i, largest);
+                    this.swapHeapNodes(i, largest);
                     i = largest;
                 } else {
                     isCompleted = true;
@@ -484,41 +549,89 @@ public class Graph {
         }
 
 
+        /**
+         * Returns the node (vertex) with the heaviest neighborhood (maximal neighborhood weight).
+         * @return the node (vertex) with the heaviest neighborhood (maximal neighborhood weight).
+         */
         public Node max() {
-            return heapArr[0].value;
+            return this.heapArr[0].value;
         }
 
 
+        /**
+         * Decreases the neighborhood weight of heapNode by delta.
+         *
+         * @param heapNode - the (heap) node with neighborhood weight to decrease.
+         * @param delta - a number to decrease by.
+         */
         public void decreaseNeighborhoodWeight(HeapNode heapNode, int delta) {
             heapNode.key -= delta;
             this.heapifyDown(heapNode.heapIndex);
         }
 
 
+        /**
+         * Increases the neighborhood weight of heapNode by delta.
+         *
+         * @param heapNode - the (heap) node with neighborhood weight to increase.
+         * @param delta - a number to increase by.
+         */
         public void increaseNeighborhoodWeight(HeapNode heapNode, int delta) {
             heapNode.key += delta;
             this.heapifyUp(heapNode.heapIndex);
         }
 
 
+        /**
+         * Deletes heapNode from the heap.
+         *
+         * @param heapNode - the (heap) node to delete.
+         */
         public void deleteHeapNode(HeapNode heapNode) {
+            this.setHeapNodeAtIndex(this.heapArr[this.getSize() - 1], heapNode.heapIndex);
+            this.heapArr[this.getSize() - 1] = null;
+            this.size -= 1;
+
             this.heapifyUp(heapNode.heapIndex);
             this.heapifyDown(heapNode.heapIndex);
         }
 
 
+        
+        /**
+         * This class represents a (heap) node in the heap, which his key is neighborhood weight.
+         */
         public class HeapNode {
+            /**
+             * The neighborhood weight.
+             */
             public int key;
+
+            /**
+             * The node (vertex) that this (heap) node represents its neighborhood weight.
+             */
             public Node value;
+
+            /**
+             * The index of this (heap) node in the array of the heap.
+             */
+
             public int heapIndex;
 
+            /**
+             * Creates a new (heap) node object, given its key (neighborhood weight),
+             * its value (corresponding node (vertex)) and its index in the array of the heap.
+             *
+             * @param key - The neighborhood weight.
+             * @param value - The node (vertex) that this (heap) node represents its neighborhood weight.
+             * @param heapIndex - The index of this (heap) node in the array of the heap.
+             */
             public HeapNode(int key, Node value, int heapIndex) {
                 this.key = key;
                 this.value = value;
                 this.heapIndex = heapIndex;
             }
         }
-
     }
 
 

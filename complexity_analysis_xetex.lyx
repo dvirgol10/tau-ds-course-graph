@@ -1629,7 +1629,7 @@ NeighborNode
 \begin_inset Formula $node\_id$
 \end_inset
 
- מסוג גנרי
+ מסוג
 \family roman
 \series medium
 \shape up
@@ -2698,6 +2698,1685 @@ decreaseNeighborhoodWeight(HeapNode heapNode, int delta)
 \end_inset
 
  בתוחלת.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Newpage pagebreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+המחלקה
+\family roman
+\series bold
+\shape up
+\size larger
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+\lang english
+HeapNode
+\end_layout
+
+\begin_layout Subsection
+תיאור המחלקה:
+\end_layout
+
+\begin_layout Standard
+מחלקה זו מייצגת צומת ערימה, באשר המפתח שלו הוא משקל סביבה של קודקוד כלשהו
+ בגרף.
+\end_layout
+
+\begin_layout Subsection
+שדות המחלקה:
+\end_layout
+
+\begin_layout Enumerate
+המשתנה הציבורי 
+\begin_inset Formula $key$
+\end_inset
+
+ מסוג
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+\lang english
+int
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+\lang hebrew
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+אשר מהווה משקל סביבה של הקודקוד המתאים לצומת הערימה.
+\end_layout
+
+\begin_layout Enumerate
+המשתנה הציבורי 
+\begin_inset Formula $value$
+\end_inset
+
+ מסוג
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+\lang english
+Node
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+\lang hebrew
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+אשר מצביע לקודקוד אשר את משקל סביבתו מייצג צומת הערימה.
+\end_layout
+
+\begin_layout Enumerate
+המשתנה הציבורי 
+\begin_inset Formula $heapIndex$
+\end_inset
+
+ מסוג
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+\lang english
+int
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+\lang hebrew
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+אשר שומר את האינדקס הנוכחי של צומת הערימה במערך המייצג את הערימה.
+\end_layout
+
+\begin_layout Subsection
+בנאי המחלקה:
+\end_layout
+
+\begin_layout Subsubsection
+
+\series bold
+הבנאי 
+\lang english
+public HeapNode(int key, Node value, int heapIndex)
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+מה הוא עושה: 
+\series default
+פעולה בונה של המחלקה, מאתחל את שדה המפתח, שדה הערך ושדה האינדקס.
+\end_layout
+
+\begin_layout Itemize
+השדה 
+\begin_inset Formula $key$
+\end_inset
+
+ מאותחל לפרמטר 
+\begin_inset Formula $key$
+\end_inset
+
+ שניתן על ידי המשתמש.
+\end_layout
+
+\begin_layout Itemize
+השדה 
+\begin_inset Formula $value$
+\end_inset
+
+ מאותחל לפרמטר 
+\begin_inset Formula $value$
+\end_inset
+
+ שניתן על ידי המשתמש.
+\end_layout
+
+\begin_layout Itemize
+השדה 
+\begin_inset Formula $heapIndex$
+\end_inset
+
+ מאותחל לפרמטר 
+\begin_inset Formula $heapIndex$
+\end_inset
+
+ שניתן על ידי המשתמש.
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+סיבוכיות זמן הריצה:
+\series default
+ מתבצעות מספר קבוע של השמות לשדות, לכן סיבוכיות זמן הריצה הכוללת היא 
+\begin_inset Formula $O\left(1\right)$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Newpage pagebreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+המחלקה
+\family roman
+\series bold
+\shape up
+\size larger
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+\lang english
+MaxHeap
+\end_layout
+
+\begin_layout Subsection
+תיאור המחלקה:
+\end_layout
+
+\begin_layout Standard
+מחלקה זו מממשת ערימת מקסימום בינארית אשר מתחזקת את משקל הסביבה המקסימלי
+ של הקודקודים בגרף.
+\end_layout
+
+\begin_layout Subsection
+שדות המחלקה:
+\end_layout
+
+\begin_layout Enumerate
+המשתנה הציבורי 
+\begin_inset Formula $heapArr$
+\end_inset
+
+ מסוג
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+\lang english
+HeapNode[]
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+\lang hebrew
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+אשר מהווה מערך המייצג את הערימה.
+\end_layout
+
+\begin_layout Enumerate
+המשתנה הציבורי 
+\begin_inset Formula $size$
+\end_inset
+
+ מסוג
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+\lang english
+int
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+\lang hebrew
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+אשר מייצג את כמות גודל הערימה, כלומר כמות משקלי הסביבות המצויים בה )ששווה
+ לכמות הקודקודים בגרף(.
+ יש לציין כי גודל המערך של הערימה לא משתנה, אולם הגרף מאפשר מחיקה של צמתים
+ ולכן יש צורך להקטין את גודל ייצוג הערימה.
+\end_layout
+
+\begin_layout Subsection
+בנאי המחלקה:
+\end_layout
+
+\begin_layout Subsubsection
+
+\series bold
+הבנאי 
+\lang english
+public MaxHeap(Node[] nodes)
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+מה הוא עושה: 
+\series default
+פעולה בונה של המחלקה, יוצר ערימת מקסימום אשר האיברים שהיא מחזיקה במערך הם
+ צמתי ערימה והמפתחות שלהם הם משקלי הסביבות )בעת היצירה אין קשתות בגרף ולכן
+ משקלי הסביבות הן בפועל משקלי הקודקודים(.
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+כיצד הוא פועל:
+\series default
+ תחילה, יוצר מערך כגודל מערך הקודקודים שהתקבל כפרמטר )
+\begin_inset Formula $nodes$
+\end_inset
+
+( ובעזרת לולאה שם בו את איברי הערימה המתאימים.
+ לאחר מכן, בונה ערימה חוקית מהמערך כפי שראינו בכיתה )מתקן צמתי ערימה פנימיים
+ מהסוף להתחלה למען יצירת תתי-ערימות חוקיות בכל שלב.
+ נציין כי צומת הערימה הפנימי האחרון הוא אביו של צומת הערימה האחרון(.
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+סיבוכיות זמן הריצה:
+\series default
+ כלל הפעולות בתוך הלולאות ומחוצה להן, ביניהן 
+\lang english
+getWeight(), HeapNode(int key, Node value, int heapIndex)
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+\lang hebrew
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+ו-
+\lang english
+parent(int i)
+\lang hebrew
+ מתבצעות ב-
+\begin_inset Formula $O\left(1\right)$
+\end_inset
+
+ זמן.
+ הלולאה הראשונה של אתחול המערך מבצעת 
+\begin_inset Formula $N$
+\end_inset
+
+ איטרציות )כאשר 
+\begin_inset Formula $N$
+\end_inset
+
+ הוא גודל מערך הקלט 
+\begin_inset Formula $nodes$
+\end_inset
+
+, כלומר מספר הקודקודים במצב ההתחלתי של הגרף(.
+ לכן הלולאה הראשונה מתבצעת ב-
+\begin_inset Formula $O\left(N\right)$
+\end_inset
+
+ זמן.
+ ראינו בכיתה כי בניית ערימה חוקית ממערך בגודל 
+\begin_inset Formula $N$
+\end_inset
+
+ באופן בו התבצעה בקוד, רצה ב-
+\begin_inset Formula $O\left(N\right)$
+\end_inset
+
+ זמן.
+ לכן סך הכל סיבוכיות זמן הריצה של הבנאי היא 
+\begin_inset Formula $O\left(N\right)$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Subsection
+פעולות המחלקה:
+\end_layout
+
+\begin_layout Subsubsection
+
+\series bold
+הפעולה 
+\lang english
+public int left(int i)
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+מה היא עושה: 
+\series default
+מחזירה את האינדקס בערימה של הבן השמאלי של צומת הערימה שנמצא באינדקס 
+\begin_inset Formula $i$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+סיבוכיות זמן הריצה: 
+\series default
+ישנו מספר קבוע של פעולות חשבון, לכן 
+\begin_inset Formula $O\left(1\right)$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Subsubsection
+
+\series bold
+הפעולה 
+\lang english
+public int right(int i)
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+מה היא עושה: 
+\series default
+מחזירה את האינדקס בערימה של הבן הימני של צומת הערימה שנמצא באינדקס 
+\begin_inset Formula $i$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+סיבוכיות זמן הריצה: 
+\series default
+ישנו מספר קבוע של פעולות חשבון, לכן 
+\begin_inset Formula $O\left(1\right)$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Subsubsection
+
+\series bold
+הפעולה 
+\lang english
+public int parent(int i)
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+מה היא עושה: 
+\series default
+מחזירה את האינדקס בערימה של אביו של צומת הערימה שנמצא באינדקס 
+\begin_inset Formula $i$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+סיבוכיות זמן הריצה: 
+\series default
+ישנו מספר קבוע של פעולות חשבון, לכן 
+\begin_inset Formula $O\left(1\right)$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Subsubsection
+
+\series bold
+הפעולה 
+\lang english
+public int getSize()
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+מה היא עושה: 
+\series default
+מחזירה את הגודל של הערימה.
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+סיבוכיות זמן הריצה: 
+\series default
+ישנה גישה אחת לשדה, לכן 
+\begin_inset Formula $O\left(1\right)$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Subsubsection
+
+\series bold
+הפעולה 
+\lang english
+public void setHeapNodeAtIndex(HeapNode heapNode, int i)
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+מה היא עושה: 
+\series default
+משימה את 
+\begin_inset Formula $heapNode$
+\end_inset
+
+ באינדקס 
+\begin_inset Formula $i$
+\end_inset
+
+ בערימה, ומעדכנת את השדה המתאים )
+\begin_inset Formula $heapIndex$
+\end_inset
+
+( של 
+\begin_inset Formula $heapNode$
+\end_inset
+
+ להיות האינדקס החדש שלו בערימה, 
+\begin_inset Formula $i$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+סיבוכיות זמן הריצה: 
+\series default
+ישנן גישות והשמות לשדות וכן גישה והשמה לאיבר במערך, לכן 
+\begin_inset Formula $O\left(1\right)$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Subsubsection
+
+\series bold
+הפעולה 
+\lang english
+public void swapHeapNodes(int i, int j)
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+מה היא עושה: 
+\series default
+מבצעת חילוף בין שני צמתי הערימה אשר נמצאים באינדקסים 
+\begin_inset Formula $i$
+\end_inset
+
+ ו-
+\begin_inset Formula $j$
+\end_inset
+
+ בערימה.
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+סיבוכיות זמן הריצה: 
+\series default
+ישנן גישה לשדה ולאיבר במערך וכן שימוש בפעולה 
+\lang english
+setHeapNodeAtIndex(HeapNode heapNode, int i)
+\lang hebrew
+, כולם רצים בזמן קבוע, לכן סיבוכיות זמן הריצה היא 
+\begin_inset Formula $O\left(1\right)$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Subsubsection
+
+\series bold
+הפעולה 
+\lang english
+public void heapifyUp(int i)
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+מה היא עושה: 
+\series default
+מתקנת כלפי מעלה את צומת הערימה שנמצא באינדקס 
+\begin_inset Formula $i$
+\end_inset
+
+, אם יש צורך בכך.
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+כיצד היא פועלת:
+\series default
+ עוברת במסלול מצומת הערימה שבאינדקס 
+\begin_inset Formula $i$
+\end_inset
+
+ אל 
+\begin_inset Quotes srd
+\end_inset
+
+שורש הערימה
+\begin_inset Quotes srd
+\end_inset
+
+ )האיבר המקסימלי באינדקס 
+\begin_inset Formula $0$
+\end_inset
+
+(, ובכל שלב מחליפה את צומת הערימה עם אביו עד שמיקומו יהיה חוקי.
+ אם לא התבצעה החלפה בשלב מסוים, סימן שמיקום צומת הערימה חוקי והפעולה מסתיימת.
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+סיבוכיות זמן הריצה: 
+\series default
+כלל הפעולות בבדיקת תנאי הלולאה וכן בגוף הלולאה, כולל 
+\lang english
+parent(int i)
+\lang hebrew
+ ו-
+\lang english
+swapHeapNodes(int i, int j)
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+\lang hebrew
+ מתבצעות ב-
+\begin_inset Formula $O\left(1\right)$
+\end_inset
+
+ זמן.
+ כעת, בערימה יש 
+\begin_inset Formula $n$
+\end_inset
+
+ איברים )אמנם גודל הערימה הוא 
+\begin_inset Formula $N$
+\end_inset
+
+ כמספר הקודקודים במצב ההתחלתי של הגרף, אך כאשר מוחקים קודקוד מהגרף מוחקים
+ גם את האיבר המתאים אליו בערימה.
+ לכן מספר האיברים בערימה הוא מספר הקודקודים כרגע בגרף )עד כדי 
+\begin_inset Formula $\pm1$
+\end_inset
+
+ כאשר השימוש בפעולה זו הוא בעת מחיקת קודקוד(( וכפי שראינו בכיתה גובהה של
+ הערימה הוא 
+\begin_inset Formula $O\left(\log n\right)$
+\end_inset
+
+, אזי מכך שהלולאה עוברת במסלול מאיבר לכיוון השורש, סיבוכיות זמן הריצה הכוללת
+ של הפעולה היא 
+\begin_inset Formula $O\left(\log n\right)$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Subsubsection
+
+\series bold
+הפעולה 
+\lang english
+public void heapifyDown(int i)
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+מה היא עושה: 
+\series default
+מתקנת כלפי מטה את צומת הערימה שנמצא באינדקס 
+\begin_inset Formula $i$
+\end_inset
+
+, אם יש צורך בכך.
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+כיצד היא פועלת:
+\series default
+ עוברת במסלול מצומת הערימה שבאינדקס 
+\begin_inset Formula $i$
+\end_inset
+
+ לכיוון 
+\begin_inset Quotes sld
+\end_inset
+
+עלה
+\begin_inset Quotes srd
+\end_inset
+
+ בערימה )איבר ללא ילדים(, ובכל שלב מחליפה את צומת הערימה עם הבן עם המפתח
+ המקסימלי עד שמיקומו יהיה חוקי.
+ אם לא התבצעה החלפה בשלב מסוים, סימן שמיקום צומת הערימה חוקי והפעולה מסתיימת.
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+סיבוכיות זמן הריצה: 
+\series default
+כלל הפעולות בבדיקת תנאי הלולאה וכן בגוף הלולאה, כולל
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+\lang english
+left(int i), right(int i), getSize()
+\lang hebrew
+ ו-
+\lang english
+swapHeapNodes(int i, int j)
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+\lang hebrew
+ מתבצעות ב-
+\begin_inset Formula $O\left(1\right)$
+\end_inset
+
+ זמן.
+ כעת, בערימה יש 
+\begin_inset Formula $n$
+\end_inset
+
+ איברים )אמנם גודל הערימה הוא 
+\begin_inset Formula $N$
+\end_inset
+
+ כמספר הקודקודים במצב ההתחלתי של הגרף, אך כאשר מוחקים קודקוד מהגרף מוחקים
+ גם את האיבר המתאים אליו בערימה.
+ לכן מספר האיברים בערימה הוא מספר הקודקודים כרגע בגרף )עד כדי 
+\begin_inset Formula $\pm1$
+\end_inset
+
+ כאשר השימוש בפעולה זו הוא בעת מחיקת קודקוד(( וכפי שראינו בכיתה גובהה של
+ הערימה הוא 
+\begin_inset Formula $O\left(\log n\right)$
+\end_inset
+
+, אזי מכך שהלולאה עוברת במסלול מאיבר לכיוון 
+\begin_inset Quotes sld
+\end_inset
+
+עלה
+\begin_inset Quotes srd
+\end_inset
+
+, סיבוכיות זמן הריצה הכוללת של הפעולה היא 
+\begin_inset Formula $O\left(\log n\right)$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Subsubsection
+
+\series bold
+הפעולה 
+\lang english
+public Node max()
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+מה היא עושה: 
+\series default
+מחזירה את הצומת )הקודקוד( עם משקל הסביבה המקסימלי.
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+כיצד היא פועלת:
+\series default
+ מחזירה את הקודקוד אשר צומת הערימה באינדקס 
+\begin_inset Formula $0$
+\end_inset
+
+ מייצג את משקל סביבתו )לפי כלל הערימה, משקל הסביבה המקסימלי יהיה בצומת הערימה
+ הראשון, כלומר באינדקס 
+\begin_inset Formula $0$
+\end_inset
+
+(.
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+סיבוכיות זמן הריצה: 
+\series default
+ישנן גישות לשדות וכן גישה לאיבר במערך, לכן 
+\begin_inset Formula $O\left(1\right)$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Subsubsection
+
+\series bold
+הפעולה 
+\lang english
+public void decreaseNeighborhoodWeight(HeapNode heapNode, int delta)
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+מה היא עושה: 
+\series default
+מפחיתה את משקל הסביבה של צומת הערימה 
+\begin_inset Formula $heapNode$
+\end_inset
+
+ על ידי 
+\begin_inset Formula $delta$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+כיצד היא פועלת:
+\series default
+ מחסירה 
+\begin_inset Formula $delta$
+\end_inset
+
+ מהמפתח של 
+\begin_inset Formula $heapNode$
+\end_inset
+
+, שהוא משקל הסביבה ש-
+\begin_inset Formula $heapNode$
+\end_inset
+
+ מייצג, וכן מבצעת תיקון כלפי מטה של צומת הערימה בעזרת
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+\lang english
+heapifyDown(int i)
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+\lang hebrew
+.
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+התיקון הוא בהכרח כלפי מטה שכן מדובר בערימת מקסימום ולכן ההפרה היחידה של
+ כלל הערימה שיכולה להתרחש היא שהמפתח של 
+\begin_inset Formula $heapNode$
+\end_inset
+
+ יהפוך לקטן יותר מהמפתחות של אחד או יותר מצאצאיו.
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+סיבוכיות זמן הריצה: 
+\series default
+ישנן גישות לשדות ב-
+\begin_inset Formula $O\left(1\right)$
+\end_inset
+
+ וכן ביצוע של הפעולה 
+\lang english
+heapifyDown(int i)
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+\lang hebrew
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+ב-
+\begin_inset Formula $O\left(\log n\right)$
+\end_inset
+
+ זמן, לכן סיבוכיות זמן הריצה היא 
+\begin_inset Formula $O\left(\log n\right)$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Subsubsection
+
+\series bold
+הפעולה 
+\lang english
+public void increaseNeighborhoodWeight(HeapNode heapNode, int delta)
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+מה היא עושה: 
+\series default
+מגדילה את משקל הסביבה של צומת הערימה 
+\begin_inset Formula $heapNode$
+\end_inset
+
+ על ידי 
+\begin_inset Formula $delta$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+כיצד היא פועלת:
+\series default
+ מגדילה את המפתח של 
+\begin_inset Formula $heapNode$
+\end_inset
+
+ ב-
+\begin_inset Formula $delta$
+\end_inset
+
+, שהוא משקל הסביבה ש-
+\begin_inset Formula $heapNode$
+\end_inset
+
+ מייצג, וכן מבצעת תיקון כלפי מעלה של צומת הערימה בעזרת
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+\lang english
+heapifyUp(int i)
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+\lang hebrew
+.
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+התיקון הוא בהכרח כלפי מעלה שכן מדובר בערימת מקסימום ולכן ההפרה היחידה של
+ כלל הערימה שיכולה להתרחש היא שהמפתח של 
+\begin_inset Formula $heapNode$
+\end_inset
+
+ יהפוך לגדול יותר מהמפתחות של אחד או יותר מאבותיו הקדמונים.
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+סיבוכיות זמן הריצה: 
+\series default
+ישנן גישות לשדות ב-
+\begin_inset Formula $O\left(1\right)$
+\end_inset
+
+ וכן ביצוע של הפעולה 
+\lang english
+heapifyUp(int i)
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+\lang hebrew
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+ב-
+\begin_inset Formula $O\left(\log n\right)$
+\end_inset
+
+ זמן, לכן סיבוכיות זמן הריצה היא 
+\begin_inset Formula $O\left(\log n\right)$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Subsubsection
+
+\series bold
+הפעולה 
+\lang english
+public void deleteHeapNode(HeapNode heapNode)
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+מה היא עושה: 
+\series default
+מוחקת את 
+\begin_inset Formula $heapNode$
+\end_inset
+
+ מהערימה.
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+כיצד היא פועלת:
+\series default
+ באופן דומה לזה שראינו בהרצאה.
+ משתמשת בפעולה 
+\lang english
+setHeapNodeAtIndex(HeapNode heapNode, int i)
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+\lang hebrew
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+על מנת לשים את צומת הערימה האחרון במקומו של 
+\begin_inset Formula $heapNode$
+\end_inset
+
+, ולאחר מכן מתקנת אותו כלפי מעלה או כלפי מטה במידת הצורך בעזרת הפעולות 
+\lang english
+heapifyUp(int i)
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+\lang hebrew
+ או 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+\lang english
+heapifyDown(int i)
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+\lang hebrew
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+)בפועל שתיהן נקראות אולם רק אחת מהן באמת 
+\begin_inset Quotes sld
+\end_inset
+
+מתקנת
+\begin_inset Quotes srd
+\end_inset
+
+ את צומת הערימה שכן לפי כלל הערימה לא יתכן מצב בו ישנה הפרה גם כלפי מעלה
+ וגם כלפי מטה(.
+ נציין כי הפעולה מקטינה את שדה 
+\begin_inset Formula $size$
+\end_inset
+
+ ב-
+\begin_inset Formula $1$
+\end_inset
+
+ וכן משימה
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+\lang english
+null
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+\lang hebrew
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+במקומו הקודם של צומת הערימה שהיה האחרון )על מנת 
+\begin_inset Quotes sld
+\end_inset
+
+לשחרר
+\begin_inset Quotes srd
+\end_inset
+
+ מצביעים(.
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+סיבוכיות זמן הריצה: 
+\series default
+ישנן גישות לשדות, לאיברים במערך וביצוע הפעולה 
+\lang english
+getSize()
+\lang hebrew
+ ב-
+\begin_inset Formula $O\left(1\right)$
+\end_inset
+
+ זמן.
+ כמו כן, ישנן קריאות לפעולות 
+\lang english
+heapifyUp(int i)
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+\lang hebrew
+ ו-
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+\lang english
+heapifyDown(int i)
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+\lang hebrew
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+ב-
+\begin_inset Formula $O\left(\log n\right)$
+\end_inset
+
+ זמן.
+ לכן סיבוכיות זמן הריצה הכוללת של הפעולה היא 
+\begin_inset Formula $O\left(\log n\right)$
+\end_inset
+
+.
 \end_layout
 
 \begin_layout Standard
