@@ -5328,7 +5328,7 @@ int
 \noun default
 \color inherit
 \lang english
-int
+long
 \family roman
 \series medium
 \shape up
@@ -5398,7 +5398,7 @@ int
 \noun default
 \color inherit
 \lang english
-int
+long
 \family roman
 \series medium
 \shape up

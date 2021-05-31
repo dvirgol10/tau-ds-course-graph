@@ -760,12 +760,12 @@ public class Graph {
         /**
          * A number between 1 and p-1 that is used for the modular hash function.
          */
-        public int a;
+        public long a;
 
         /**
          * A number between 0 and p-1 that is used for the modular hash function.
          */
-        public int b;
+        public long b;
 
         /**
          * The array that represents the hash table.
@@ -810,7 +810,7 @@ public class Graph {
          * @return the chain in the hash table where the key node_id should be.
          */
         public LinkedList<HashTableNode> findChain(int node_id) {
-            return this.table[((this.a * node_id + this.b) % this.p) % this.table.length];
+            return this.table[(int) (((this.a * node_id + this.b) % this.p) % this.table.length)];
         }
 
 
