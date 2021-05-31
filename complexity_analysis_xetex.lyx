@@ -8125,7 +8125,7 @@ find(int node_id)
 \begin_inset Formula $O\left(1\right)$
 \end_inset
 
- במקרה הגרוע.
+ בתוחלת.
 \end_layout
 
 \begin_layout Subsubsection

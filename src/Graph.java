@@ -32,6 +32,8 @@ public class Graph {
      * Initializes the graph on a given set of nodes. The created graph is empty, i.e. it has no edges.
      * You may assume that the ids of distinct nodes are distinct.
      *
+     * time complexity: O(N) expected.
+     *
      * @param nodes - an array of node objects
      */
     public Graph(Node[] nodes){
@@ -44,6 +46,9 @@ public class Graph {
     /**
      * This method returns the node in the graph with the maximal neighborhood weight.
      * Note: nodes that have been removed from the graph using deleteNode are no longer in the graph.
+     *
+     * time complexity: O(1).
+     *
      * @return a Node object representing the correct node. If there is no node in the graph, returns 'null'.
      */
     public Node maxNeighborhoodWeight(){
@@ -56,6 +61,8 @@ public class Graph {
 
     /**
      * given a node id of a node in the graph, this method returns the neighborhood weight of that node.
+     *
+     * time complexity: O(1) expected.
      *
      * @param node_id - an id of a node.
      * @return the neighborhood weight of the node of id 'node_id' if such a node exists in the graph.
@@ -76,6 +83,8 @@ public class Graph {
      * The two nodes must be distinct; otherwise, the function does nothing.
      * You may assume that if the two nodes are in the graph, there exists no edge between them prior to the call.
      *
+     * time complexity: O(log(n)) expected.
+     *
      * @param node1_id - the id of the first node.
      * @param node2_id - the id of the second node.
      * @return returns 'true' if the function added an edge, otherwise returns 'false'.
@@ -94,6 +103,8 @@ public class Graph {
     /**
      * Given the id of a node in the graph, deletes the node of that id from the graph, if it exists.
      *
+     * time complexity: O((d_v+1) * log(n)) expected.
+     *
      * @param node_id - the id of the node to delete.
      * @return returns 'true' if the function deleted a node, otherwise returns 'false'
      */
@@ -109,6 +120,9 @@ public class Graph {
 
     /**
      * Returns the number of vertices that present in the graph.
+     *
+     * time complexity: O(1).
+     *
      * @return the number of vertices that present in the graph.
      */
     public int getNumNodes() {
@@ -118,6 +132,9 @@ public class Graph {
 
     /**
      * Returns the number of edges that present in the graph.
+     *
+     * time complexity: O(1).
+     *
      * @return the number of edges that present in the graph.
      */
     public int getNumEdges() {
@@ -143,6 +160,9 @@ public class Graph {
 
         /**
          * Creates a new node object, given its id and its weight.
+         *
+         * time complexity: O(1).
+         *
          * @param id - the id of the node.
          * @param weight - the weight of the node.
          */
@@ -154,6 +174,9 @@ public class Graph {
 
         /**
          * Returns the id of the node.
+         *
+         * time complexity: O(1).
+         *
          * @return the id of the node.
          */
         public int getId(){
@@ -163,6 +186,9 @@ public class Graph {
 
         /**
          * Returns the weight of the node.
+         *
+         * time complexity: O(1).
+         *
          * @return the weight of the node.
          */
         public int getWeight(){
@@ -187,6 +213,8 @@ public class Graph {
         /**
          * Creates an empty linked list, i.e. it has no elements.
          *
+         * time complexity: O(1).
+         *
          */
         public LinkedList() {
             this.length = 0;
@@ -198,6 +226,8 @@ public class Graph {
 
         /**
          * Given an item, inserts it to the start of the linked list.
+         *
+         * time complexity: O(1).
          *
          * @param item - the item to insert.
          */
@@ -213,6 +243,9 @@ public class Graph {
 
         /**
          * Returns the first (list) node of the linked list.
+         *
+         * time complexity: O(1).
+         *
          * @return the first (list) node of the linked list.
          */
         public ListNode retrieveFirstNode() {
@@ -223,6 +256,10 @@ public class Graph {
         /**
          * Given an item, returns the first (list) node in the linked list that keeps the item, if it exists.
          * Otherwise, returns null.
+         *
+         * time complexity: O(i) while i is the "index" of the first (list) node
+         *                  in the linked list that keeps the item, if it exists.
+         *                  Otherwise, i is the length of the linked list.
          *
          * @param item - the item of a (list) node to return.
          * @return returns the first (list) node in the linked list that keeps the item if it exists,
@@ -244,6 +281,8 @@ public class Graph {
 
         /**
          * Given an (list) node, deletes it from its linked list.
+         *
+         * time complexity: O(1).
          *
          * @param node - the (list) node to delete.
          */
@@ -279,6 +318,9 @@ public class Graph {
 
             /**
              * Creates a new (list) node, given its item.
+             *
+             * time complexity: O(1).
+             *
              * @param item - the item of the (list) node.
              */
             public ListNode(T item) {
@@ -288,6 +330,9 @@ public class Graph {
 
             /**
              * Returns the item of the node.
+             *
+             * time complexity: O(1).
+             *
              * @return the item of the node.
              */
             public T getItem(){
@@ -317,6 +362,9 @@ public class Graph {
 
         /**
          * Creates an empty adjacency list, given its length (the number of vertices in the graph).
+         *
+         * time complexity: O(numNodes).
+         *
          * @param numNodes - the number of vertices in the graph.
          */
         public NeighborhoodsList(int numNodes) {
@@ -331,6 +379,8 @@ public class Graph {
         /**
          * This function adds an edge between the two vertices whose ids are specified.
          * We assume that the two vertices are in the graph, and they are distinct.
+         *
+         * time complexity: O(log(n)) expected.
          *
          * @param node1_id - the id of the first vertex.
          * @param node2_id - the id of the second vertex.
@@ -365,6 +415,8 @@ public class Graph {
          * Given the hash-table node of a vertex in the graph,
          * deletes the vertex of that hash-table node from the graph.
          * We assume that the vertex is in the graph.
+         *
+         * time complexity: O((d_v+1) * log(n)) expected.
          *
          * @param hashTableNode - the hash-table node of the vertex to delete.
          */
@@ -415,6 +467,8 @@ public class Graph {
             /**
              * Creates a new neighbor node object, given the id of the vertex.
              *
+             * time complexity: O(1).
+             *
              * @param node_id - the id of the vertex which this neighbor node represents.
              */
             public NeighborNode(int node_id) {
@@ -447,6 +501,8 @@ public class Graph {
          * The graph has no edges, so in practice the neighborhood weights are node weights.
          * We assume that the ids of distinct nodes are distinct.
          *
+         * time complexity: O(N).
+         *
          * @param nodes - an array of node objects
          */
         public MaxHeap(Node[] nodes) {
@@ -469,6 +525,8 @@ public class Graph {
         /**
          * Returns the index of the left child of the (heap) node at index i.
          *
+         * time complexity: O(1).
+         *
          * @param i - an index of a (heap) node in the heap.
          * @return the index of the left child of the (heap) node at index i.
          */
@@ -479,6 +537,8 @@ public class Graph {
 
         /**
          * Returns the index of the right child of the (heap) node at index i.
+         *
+         * time complexity: O(1).
          *
          * @param i - an index of a (heap) node in the heap.
          * @return the index of the right child of the (heap) node at index i.
@@ -491,6 +551,8 @@ public class Graph {
         /**
          * Returns the index of the parent of the (heap) node at index i.
          *
+         * time complexity: O(1).
+         *
          * @param i - an index of a (heap) node in the heap.
          * @return the index of the parent of the (heap) node at index i.
          */
@@ -501,6 +563,9 @@ public class Graph {
 
         /**
          * Returns the size of the heap.
+         *
+         * time complexity: O(1).
+         *
          * @return the size of the heap.
          */
         public int getSize() {
@@ -510,6 +575,8 @@ public class Graph {
 
         /**
          * Sets heapNode at index i in the heap, and updates his index field.
+         *
+         * time complexity: O(1).
          *
          * @param heapNode - a (heap) node to set at index i in the heap.
          * @param i - an index to set heapNode at.
@@ -522,6 +589,8 @@ public class Graph {
 
         /**
          * Swap the (heap) nodes at indices i and j in the heap.
+         *
+         * time complexity: O(1).
          *
          * @param i - an index in the heap.
          * @param j - an index in the heap.
@@ -536,6 +605,8 @@ public class Graph {
         /**
          * Corrects upwards the (heap) node at index i, if it is needed.
          *
+         * time complexity: O(log(n)).
+         *
          * @param i - an index to correct in the heap.
          */
         public void heapifyUp(int i) {
@@ -548,6 +619,8 @@ public class Graph {
 
         /**
          * Corrects downwards the (heap) node at index i, if it is needed.
+         *
+         * time complexity: O(log(n)).
          *
          * @param i - an index to correct in the heap.
          */
@@ -579,6 +652,9 @@ public class Graph {
 
         /**
          * Returns the node (vertex) with the heaviest neighborhood (maximal neighborhood weight).
+         *
+         * time complexity: O(1).
+         *
          * @return the node (vertex) with the heaviest neighborhood (maximal neighborhood weight).
          */
         public Node max() {
@@ -588,6 +664,8 @@ public class Graph {
 
         /**
          * Decreases the neighborhood weight of heapNode by delta.
+         *
+         * time complexity: O(log(n)).
          *
          * @param heapNode - the (heap) node with neighborhood weight to decrease.
          * @param delta - a number to decrease by.
@@ -601,6 +679,8 @@ public class Graph {
         /**
          * Increases the neighborhood weight of heapNode by delta.
          *
+         * time complexity: O(log(n)).
+         *
          * @param heapNode - the (heap) node with neighborhood weight to increase.
          * @param delta - a number to increase by.
          */
@@ -612,6 +692,8 @@ public class Graph {
 
         /**
          * Deletes heapNode from the heap.
+         *
+         * time complexity: O(log(n)).
          *
          * @param heapNode - the (heap) node to delete.
          */
@@ -649,6 +731,8 @@ public class Graph {
             /**
              * Creates a new (heap) node object, given its key (neighborhood weight),
              * its value (corresponding node (vertex)) and its index in the array of the heap.
+             *
+             * time complexity: O(1).
              *
              * @param key - The neighborhood weight.
              * @param value - The node (vertex) that this (heap) node represents its neighborhood weight.
@@ -692,6 +776,8 @@ public class Graph {
         /**
          * Initializes the hash table that maps node id to hash node.
          *
+         * time complexity: O(n) expected.
+         *
          * @param maxHeap - the max-heap that maintains the heaviest neighborhood in the graph.
          */
         public HashTable(MaxHeap maxHeap) {
@@ -718,6 +804,8 @@ public class Graph {
         /**
          * Returns the chain in the hash table where the key node_id should be.
          *
+         * time complexity: O(1).
+         *
          * @param node_id - an id of a vertex.
          * @return the chain in the hash table where the key node_id should be.
          */
@@ -729,6 +817,8 @@ public class Graph {
         /**
          * Returns the list node in a hash table chain that contains the hash table node with the key node_id,
          * or null if such a list node does not exist.
+         *
+         * time complexity: O(1) expected.
          *
          * @param node_id - an id of a vertex.
          * @return the list node that contains the hash table node with the key node_id,
@@ -745,6 +835,8 @@ public class Graph {
          * with the key node_id.
          * Otherwise, the function does nothing.
          *
+         * time complexity: O(1) expected.
+         *
          * @param node_id - an id of a vertex
          * @param nodeIndex - the index of a vertex with the id node_id (this is the
          *                  fixed index of the vertex in the neighborhoods list)
@@ -760,6 +852,8 @@ public class Graph {
         /**
          * Deletes the list node in a hash table chain that contains the hash table node with the key node_id,
          * if such a list node exist.
+         *
+         * time complexity: O(1) expected.
          *
          * @param node_id - an id of a vertex.
          * @return the hash table node that contains the key node_id,
@@ -803,6 +897,8 @@ public class Graph {
              * Creates a new hash table node object, given its key (node_id),
              * and the values nodeNListIndex and heapNode.
              *
+             * time complexity: O(1).
+             *
              * @param node_id - The id of the vertex which this hash table node represents.
              * @param nodeNListIndex - The index of a vertex with the id node_id (this is the fixed
              *                       index of the vertex in the neighborhoods list)
@@ -815,6 +911,12 @@ public class Graph {
             }
 
             /**
+             * Returns 'true' if
+             * o is a HashTableNode object and
+             * its node_id field is equal to the node_id field of the current hash table node.
+             * Otherwise, the function returns 'false'.
+             *
+             * time complexity: O(1).
              *
              * @param o - Object o to check
              * @return 'true' if
