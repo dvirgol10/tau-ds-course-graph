@@ -146,7 +146,7 @@ public class Graph {
     /**
      * This class represents a node in the graph.
      */
-    public class Node{
+    public static class Node{ //TODO check staticity
         /**
          * The id of the node
          */
@@ -792,7 +792,6 @@ public class Graph {
             Random random = new Random();
             this.a = random.nextInt(this.p - 1) + 1;
             this.b = random.nextInt(this.p);
-            //TODO: assign values to this.a and this.b
 
             //Inserts the elements to the hash table.
             for (int i = 0; i < maxHeap.getSize(); i++) {
