@@ -9042,5 +9042,91 @@ public int getNumEdges()
 .
 \end_layout
 
+\begin_layout Subsection
+סיבוכיות זיכרון:
+\end_layout
+
+\begin_layout Standard
+רשימת השכנויות מחזיקה מערך באורך 
+\begin_inset Formula $N$
+\end_inset
+
+ באשר הייצוג של כל קשת הוא בעזרת שני צמתי רשימה )אחד עבור כל קודקוד בקשת(,
+ ועל כן סך כל סיבוכיות הזיכרון של רשימת השכנויות היא 
+\begin_inset Formula $O\left(2m+N\right)=O\left(m+N\right)$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+ערימת המקסימום מחזיקה מערך בגודל 
+\begin_inset Formula $N$
+\end_inset
+
+, באשר בכל תא נמצא צומת ערימה שגודלו קבוע.
+ על כן, סך כל סיבוכיות הזיכרון של ערימת המקסימום היא 
+\begin_inset Formula $O\left(N\right)$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+טבלת הגיבוב בנויה ממערך בגודל 
+\begin_inset Formula $N$
+\end_inset
+
+ באשר בכל תא יש מצביע לרשימה מקושרת.
+ סך הכל כמות צמתי ה-
+\lang english
+hash
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+\lang hebrew
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+היא לכל היותר 
+\begin_inset Formula $N$
+\end_inset
+
+, כאשר גודל כל צומת כזה הוא קבוע.
+ ע רשימות מקושרות, על כן, סך כל סיבוכיות הזיכרון של טבלת הגיבוב היא 
+\begin_inset Formula $O\left(N\right)$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+סך הכל קיבלנו כי סיבוכיות הזיכרון של הגרף היא 
+\begin_inset Formula $O\left(m+N\right)$
+\end_inset
+
+ בכל רגע נתון )נציין כי במבני הנתונים המפורטים לעיל ישנם מספר קבוע של שדות
+ נוספים בגדלים קבועים, לכן סיבוכיות הזיכרון לא משתנה(.
+\end_layout
+
 \end_body
 \end_document
