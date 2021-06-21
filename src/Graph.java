@@ -119,11 +119,11 @@ public class Graph {
 
 
     /**
-     * Returns the number of vertices that present in the graph.
+     * Returns the number of nodes currently in the graph.
      *
      * time complexity: O(1).
      *
-     * @return the number of vertices that present in the graph.
+     * @return the number of nodes in the graph.
      */
     public int getNumNodes() {
         return this.neighborhoodWeightHeap.getSize();
@@ -131,11 +131,11 @@ public class Graph {
 
 
     /**
-     * Returns the number of edges that present in the graph.
+     * Returns the number of edges currently in the graph.
      *
      * time complexity: O(1).
      *
-     * @return the number of edges that present in the graph.
+     * @return the number of edges currently in the graph.
      */
     public int getNumEdges() {
         return this.neighborhoodsList.numEdges;
@@ -146,7 +146,7 @@ public class Graph {
     /**
      * This class represents a node in the graph.
      */
-    public static class Node{ //TODO check staticity
+    public static class Node{
         /**
          * The id of the node
          */

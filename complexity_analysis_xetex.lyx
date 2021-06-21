@@ -147,7 +147,7 @@ LatexCommand tableofcontents
 \end_layout
 
 \begin_layout Section
-המחלקה
+המחלקה הסטטית
 \family roman
 \series bold
 \shape up
@@ -753,7 +753,7 @@ public T getItem()
 \end_layout
 
 \begin_layout Section
-המחלקה
+המחלקה הסטטית
 \family roman
 \series bold
 \shape up
@@ -3133,7 +3133,7 @@ public HeapNode(int key, Node value, int heapIndex)
 \end_layout
 
 \begin_layout Section
-המחלקה
+המחלקה הסטטית
 \family roman
 \series bold
 \shape up
@@ -4507,7 +4507,7 @@ heapifyDown(int i)
 \end_layout
 
 \begin_layout Section
-המחלקה
+המחלקה הסטטית
 \family roman
 \series bold
 \shape up
@@ -5107,7 +5107,7 @@ casting
 \end_layout
 
 \begin_layout Section
-המחלקה
+המחלקה הסטטית
 \family roman
 \series bold
 \shape up
