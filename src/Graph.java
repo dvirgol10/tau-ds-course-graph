@@ -702,8 +702,11 @@ public class Graph {
             this.heapArr[this.getSize() - 1] = null;
             this.size -= 1;
 
-            this.heapifyUp(heapNode.heapIndex);
-            this.heapifyDown(heapNode.heapIndex);
+            if (heapNode.heapIndex != this.getSize()) {
+                this.heapifyUp(heapNode.heapIndex);
+                this.heapifyDown(heapNode.heapIndex);
+            }
+
         }
 
 
