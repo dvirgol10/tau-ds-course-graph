@@ -4333,7 +4333,8 @@ heapifyDown(int i)
 \uwave default
 \noun default
 \color inherit
-)בפועל שתיהן נקראות אולם רק אחת מהן באמת 
+)בפועל שתיהן נקראות אם לא מדובר בצומת האחרון שנמחק, אולם רק אחת מהן באמת
+ 
 \begin_inset Quotes sld
 \end_inset
 
@@ -9126,6 +9127,794 @@ hash
 
  בכל רגע נתון )נציין כי במבני הנתונים המפורטים לעיל ישנם מספר קבוע של שדות
  נוספים בגדלים קבועים, לכן סיבוכיות הזיכרון לא משתנה(.
+\end_layout
+
+\begin_layout Section
+מדידות
+\end_layout
+
+\begin_layout Standard
+\noindent
+\begin_inset Tabular
+<lyxtabular version="3" rows="17" columns="3">
+<features tabularvalignment="middle">
+<column alignment="center" valignment="top" width="2.5cm">
+<column alignment="center" valignment="top" width="2.5cm">
+<column alignment="center" valignment="top">
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+דרגה מקסימלית בגרף
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $n$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+מספר סידורי 
+\begin_inset Formula $i$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\numeric on
+6
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\numeric on
+64
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\numeric on
+6
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\numeric on
+8
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\numeric on
+128
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\numeric on
+7
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\numeric on
+8
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\numeric on
+256
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\numeric on
+8
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\numeric on
+9
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\numeric on
+512
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\numeric on
+9
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\numeric on
+9
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\numeric on
+1024
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\numeric on
+10
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\numeric on
+9
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\numeric on
+2048
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\numeric on
+11
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\numeric on
+9
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\numeric on
+4096
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\numeric on
+12
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\numeric on
+11
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\numeric on
+8192
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\numeric on
+13
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\numeric on
+10
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\numeric on
+16384
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\numeric on
+14
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\numeric on
+14
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\numeric on
+32768
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\numeric on
+15
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\numeric on
+11
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\numeric on
+65536
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\numeric on
+16
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\numeric on
+11
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\numeric on
+131072
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\numeric on
+17
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\numeric on
+12
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\numeric on
+262144
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\numeric on
+18
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\numeric on
+14
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\numeric on
+524288
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\numeric on
+19
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\numeric on
+13
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\numeric on
+1048576
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\numeric on
+20
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\numeric on
+14
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\numeric on
+2097152
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\numeric on
+21
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+כפי שניתן לראות מצילום המסך המצורף מדסמוס, עבור 
+\begin_inset Formula $n=2^{i}$
+\end_inset
+
+, הדרגה המקסימלית בגרף היא בקירוב
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset Formula $3\cdot\frac{i}{\log_{2}\left(i\right)}=3\cdot\frac{\log_{2}\left(n\right)}{\log_{2}\left(\log_{2}\left(n\right)\right)}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Graphics
+	filename pasted1.png
+	scale 50
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+כעת, נתאר את הקשר לבעיית חלוקת הכדורים לתאים.
+ במקרה שלנו, הקודקודים מהווים את התאים אליהם נכנסים הקשתות, שמייצגות את
+ הכדורים.
+ ניזכר כי מספר הקודקודים בגרף, 
+\begin_inset Formula $n$
+\end_inset
+
+, הוא כמספר הקשתות בגרף.
+ נבחין כי הסיכוי שכדור, קשת, 
+\begin_inset Quotes sld
+\end_inset
+
+יכנס
+\begin_inset Quotes srd
+\end_inset
+
+ לתא מסוים, קודקוד מסוים, הוא 
+\begin_inset Formula $\frac{1}{n-1}$
+\end_inset
+
+, שכן זה הסיכוי להגריל באופן אחיד את הקודקוד המסוים מתוך 
+\begin_inset Formula $n-1$
+\end_inset
+
+ הקודקודים שנותרו )קודקוד אחר מתוך 
+\begin_inset Formula $n$
+\end_inset
+
+ הקודקודים הוא חלק מהקשת, ומכך שאין בגרף לולאות יש 
+\begin_inset Formula $n-1$
+\end_inset
+
+ אפשרויות לקודקודים שיהיו בקשת(.
+ בתוחלת מספר ההתנגשויות של קשתות )כלומר מספר הקשתות שהוגרלו פעמיים לפחות(
+ הוא קטן וזניח.
+ אזי בערכי 
+\begin_inset Formula $n$
+\end_inset
+
+ גדולים, הסיכוי שכדור, קשת, 
+\begin_inset Quotes sld
+\end_inset
+
+יכנס
+\begin_inset Quotes srd
+\end_inset
+
+ לתא מסוים, קודקוד מסוים, הוא בקירוב 
+\begin_inset Formula $\frac{1}{n}$
+\end_inset
+
+ )אכן, בערכי 
+\begin_inset Formula $n$
+\end_inset
+
+ גדולים מתקיים 
+\begin_inset Formula $\frac{1}{n}\approx\frac{1}{n-1}$
+\end_inset
+
+ במובן ש-
+\begin_inset Formula $\lim_{n\rightarrow\infty}\frac{1}{n-1}-\frac{1}{n}=\lim_{n\rightarrow\infty}\frac{n-\left(n-1\right)}{\left(n-1\right)n}=\lim_{n\rightarrow\infty}\frac{1}{n\left(n-1\right)}=0$
+\end_inset
+
+(, כלומר, בקירוב סיכוי אחיד על פני כל 
+\begin_inset Formula $n$
+\end_inset
+
+ התאים.
+\begin_inset Newline newline
+\end_inset
+
+לכן, לפי החלק במאמר שהופנינו אליו בויקיפדיה שמתייחס למקרה בו מספר הכדורים
+ שווה למספר התאים )במקרה שלנו, שניהם בערך 
+\begin_inset Formula $n$
+\end_inset
+
+, עד כדי קבוע, בהנחה שהגרלת הקשתות והקודקודים בהן היא 
+\begin_inset Quotes sld
+\end_inset
+
+טובה
+\begin_inset Quotes srd
+\end_inset
+
+, וניתן להזניח את מספר הלולאות וההתנגשויות של קשתות(, נצפה כי הדרגה המקסימלית
+ תהיה בערך 
+\begin_inset Formula $\frac{\log n}{\log\left(\log\left(n\right)\right)}$
+\end_inset
+
+.
+\begin_inset Newline newline
+\end_inset
+
+כפי שציינו קודם לכן, התוצאות האמפיריות שקיבלנו עבור 
+\begin_inset Formula $n$
+\end_inset
+
+ הן בקירוב 
+\begin_inset Formula $3\cdot\frac{\log_{2}\left(n\right)}{\log_{2}\left(\log_{2}\left(n\right)\right)}$
+\end_inset
+
+.
+ לוגריתמים בבסיסים שונים שווים אחד לשני עד כדי קבוע, לכן ניתן לומר כי התוצאות
+ האמפיריות )הכוללות מטבע הדברים סטיות ו
+\begin_inset Quotes srd
+\end_inset
+
+טעויות
+\begin_inset Quotes srd
+\end_inset
+
+ במדידה(, מתיישבות במידה מסוימת עם מה שהיינו מצפים עבור ניתוח תיאורטי 
+\begin_inset Quotes sld
+\end_inset
+
+אידאלי
+\begin_inset Quotes srd
+\end_inset
+
+ מקורב.
+\end_layout
+
+\begin_layout Standard
+=====================================================
+\end_layout
+
+\begin_layout Standard
+ניתן לראות כי הגדילה של הדרגה המקסימלית ביחס ל-
+\begin_inset Formula $i$
+\end_inset
+
+ גדלה בקירוב באופן לינארי, אזי מכך ש-
+\begin_inset Formula $n$
+\end_inset
+
+ גדל אקספוננציאלית ביחס ל-
+\begin_inset Formula $i$
+\end_inset
+
+, נקבל כי הדרגה המקסימלית גדלה לוגריתמית ביחס ל-
+\begin_inset Formula $n$
+\end_inset
+
+.
 \end_layout
 
 \end_body
